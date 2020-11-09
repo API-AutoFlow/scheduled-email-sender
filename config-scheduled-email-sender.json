@@ -1,0 +1,2823 @@
+{
+  "$product": {
+    "name": "API AutoFlow",
+    "version": "1.0.12"
+  },
+  "Data": [
+    {
+      "id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+      "meta": {},
+      "value": {
+        "name": "content"
+      }
+    }
+  ],
+  "Inbound": [
+    {
+      "id": "<1604640892653130000.0.4079928963.3902013447.97902>",
+      "meta": {},
+      "value": {
+        "access-control-allow-origin": "null",
+        "name": "Compose Email",
+        "port": 1112,
+        "type": "http server"
+      }
+    },
+    {
+      "id": "<1604640892653128000.0.4079928963.3902013447.97901>",
+      "meta": {},
+      "value": {
+        "access-control-allow-origin": "null",
+        "name": "Load Email List",
+        "port": 1111,
+        "type": "http server"
+      }
+    },
+    {
+      "id": "<1604640892653122000.0.4079928963.3902013447.97899>",
+      "meta": {},
+      "value": {
+        "access-control-allow-origin": "null",
+        "name": "SMTP Settings",
+        "port": 1113,
+        "type": "http server"
+      }
+    },
+    {
+      "id": "<1604640892653125000.0.4079928963.3902013447.97900>",
+      "meta": {},
+      "value": {
+        "access-control-allow-origin": "null",
+        "name": "Troubleshoot",
+        "port": 1114,
+        "type": "http server"
+      }
+    }
+  ],
+  "InboundEndpoint": [
+    {
+      "id": "<1604640892653138000.0.4079928963.3902013447.97905>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653122000.0.4079928963.3902013447.97899>"
+        ]
+      },
+      "value": {
+        "default-test": "<1604640892653274000.0.4079928963.3902013447.97952>",
+        "methods": [
+          "GET"
+        ],
+        "name": "Get SMTP Server Setting",
+        "path": "/smtp-server-get",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1604640892653147000.0.4079928963.3902013447.97909>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653125000.0.4079928963.3902013447.97900>"
+        ]
+      },
+      "value": {
+        "default-test": "<1604640892653257000.0.4079928963.3902013447.97944>",
+        "methods": [
+          "ANY"
+        ],
+        "name": "Count Read",
+        "path": "/count-read",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1604640892653158000.0.4079928963.3902013447.97914>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653122000.0.4079928963.3902013447.97899>"
+        ]
+      },
+      "value": {
+        "default-test": "<1604640892653272000.0.4079928963.3902013447.97951>",
+        "methods": [
+          "POST"
+        ],
+        "name": "Set SMTP Server",
+        "path": "/smtp-server-set",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1604640892653200000.0.4079928963.3902013447.97918>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653125000.0.4079928963.3902013447.97900>"
+        ]
+      },
+      "value": {
+        "default-test": "<1604640892653302000.0.4079928963.3902013447.97955>",
+        "methods": [
+          "POST"
+        ],
+        "name": "Delay Send Off",
+        "path": "/delay-send-off",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1604640892653136000.0.4079928963.3902013447.97904>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653125000.0.4079928963.3902013447.97900>"
+        ]
+      },
+      "value": {
+        "default-test": "<1604640892653263000.0.4079928963.3902013447.97947>",
+        "methods": [
+          "POST"
+        ],
+        "name": "Schedule Reset",
+        "path": "/schedule-reset",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1604640892653204000.0.4079928963.3902013447.97920>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653125000.0.4079928963.3902013447.97900>"
+        ]
+      },
+      "value": {
+        "default-test": "<1604640892653253000.0.4079928963.3902013447.97942>",
+        "methods": [
+          "GET"
+        ],
+        "name": "Last Run Get",
+        "path": "/last-run",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1604640892653156000.0.4079928963.3902013447.97913>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653130000.0.4079928963.3902013447.97902>"
+        ]
+      },
+      "value": {
+        "default-test": "<1604640892653249000.0.4079928963.3902013447.97940>",
+        "methods": [
+          "POST"
+        ],
+        "name": "Unschedule Email",
+        "path": "/schedule-delete",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1604640892653143000.0.4079928963.3902013447.97907>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653130000.0.4079928963.3902013447.97902>"
+        ]
+      },
+      "value": {
+        "default-test": "<1604640892653305000.0.4079928963.3902013447.97956>",
+        "method": "ANY",
+        "name": "Schedule Now",
+        "path": "/schedule-now",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1604640892653134000.0.4079928963.3902013447.97903>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653125000.0.4079928963.3902013447.97900>"
+        ]
+      },
+      "value": {
+        "default-test": "<1604640892653266000.0.4079928963.3902013447.97948>",
+        "methods": [
+          "POST"
+        ],
+        "name": "Last Run Set",
+        "path": "/last-run-set",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1604640892653140000.0.4079928963.3902013447.97906>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653125000.0.4079928963.3902013447.97900>"
+        ]
+      },
+      "value": {
+        "default-test": "<1604640892653255000.0.4079928963.3902013447.97943>",
+        "methods": [
+          "ANY"
+        ],
+        "name": "Delay Send Set",
+        "path": "/delay-send-set",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1604640892653154000.0.4079928963.3902013447.97912>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653128000.0.4079928963.3902013447.97901>"
+        ]
+      },
+      "value": {
+        "default-test": "<1604640892653251000.0.4079928963.3902013447.97941>",
+        "methods": [
+          "GET"
+        ],
+        "name": "Email List Read",
+        "path": "/email-list-read",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1604640892653151000.0.4079928963.3902013447.97911>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653128000.0.4079928963.3902013447.97901>"
+        ]
+      },
+      "value": {
+        "default-test": "<1604640892653276000.0.4079928963.3902013447.97953>",
+        "methods": [
+          "POST"
+        ],
+        "name": "Email List Delete",
+        "path": "/email-list-delete",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1604640892653202000.0.4079928963.3902013447.97919>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653125000.0.4079928963.3902013447.97900>"
+        ]
+      },
+      "value": {
+        "default-test": "<1604640892653259000.0.4079928963.3902013447.97945>",
+        "methods": [
+          "POST"
+        ],
+        "name": "Scheduler Off",
+        "path": "/scheduler-off",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1604640892653145000.0.4079928963.3902013447.97908>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653130000.0.4079928963.3902013447.97902>"
+        ]
+      },
+      "value": {
+        "default-test": "<1604640892653268000.0.4079928963.3902013447.97949>",
+        "methods": [
+          "POST"
+        ],
+        "name": "Schedule Email",
+        "path": "/schedule-email",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1604640892653195000.0.4079928963.3902013447.97916>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653125000.0.4079928963.3902013447.97900>"
+        ]
+      },
+      "value": {
+        "default-test": "<1604640892653270000.0.4079928963.3902013447.97950>",
+        "methods": [
+          "POST"
+        ],
+        "name": "Count Reset",
+        "path": "/count-reset",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1604640892653198000.0.4079928963.3902013447.97917>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653122000.0.4079928963.3902013447.97899>"
+        ]
+      },
+      "value": {
+        "default-test": "<1604640892653299000.0.4079928963.3902013447.97954>",
+        "methods": [
+          "POST"
+        ],
+        "name": "Delete SMTP Server Setting",
+        "path": "/smtp-server-delete",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1604640892653149000.0.4079928963.3902013447.97910>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653128000.0.4079928963.3902013447.97901>"
+        ]
+      },
+      "value": {
+        "default-test": "<1604640892653247000.0.4079928963.3902013447.97939>",
+        "methods": [
+          "POST"
+        ],
+        "name": "Email List Load",
+        "path": "/email-list-load",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1604640892653192000.0.4079928963.3902013447.97915>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653130000.0.4079928963.3902013447.97902>"
+        ]
+      },
+      "value": {
+        "default-test": "<1604640892653261000.0.4079928963.3902013447.97946>",
+        "methods": [
+          "GET"
+        ],
+        "name": "Edit Content",
+        "path": "/email-content-read",
+        "type": "endpoint"
+      }
+    }
+  ],
+  "InboundEndpointFlow": [
+    {
+      "id": "<1604640892653138000.0.4079928963.3902013447.97905>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653122000.0.4079928963.3902013447.97899>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "table/get-data",
+          "default": "",
+          "key": "smtp",
+          "mock-result": "",
+          "output-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "path": [],
+          "refresh-lifespan": false,
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false
+        }
+      ]
+    },
+    {
+      "id": "<1604640892653147000.0.4079928963.3902013447.97909>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653125000.0.4079928963.3902013447.97900>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "table/get-data",
+          "default": "",
+          "key": "email-count",
+          "mock-result": "",
+          "name": "table/get-data",
+          "output-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "path": [],
+          "refresh-lifespan": false,
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false
+        }
+      ]
+    },
+    {
+      "id": "<1604640892653158000.0.4079928963.3902013447.97914>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653122000.0.4079928963.3902013447.97899>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "json/decode",
+          "json": {
+            "__LDATA__": [
+              "request",
+              "body"
+            ]
+          },
+          "output-location": {
+            "__LDATA__": [
+              "result"
+            ]
+          }
+        },
+        {
+          "$action": "table/set-data",
+          "cache": 0,
+          "iterate": false,
+          "key": "smtp",
+          "lifespan": null,
+          "mock-result": "ok",
+          "output-location": {
+            "__LDATA__": [
+              "status"
+            ]
+          },
+          "path": [],
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false,
+          "value": {
+            "__LDATA__": [
+              "result"
+            ]
+          }
+        },
+        {
+          "$action": "table/get-data",
+          "default": "",
+          "key": "smtp",
+          "mock-result": "",
+          "output-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "path": [],
+          "refresh-lifespan": false,
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false
+        }
+      ]
+    },
+    {
+      "id": "<1604640892653200000.0.4079928963.3902013447.97918>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653125000.0.4079928963.3902013447.97900>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "config/stop-timer",
+          "timer-id": "<1604640892653311000.0.4079928963.3902013447.97958>",
+          "use-mock-result": false
+        },
+        {
+          "$action": "data/set",
+          "at-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "value": "Ok"
+        }
+      ]
+    },
+    {
+      "id": "<1604640892653136000.0.4079928963.3902013447.97904>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653125000.0.4079928963.3902013447.97900>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "table/set-data",
+          "cache": 0,
+          "iterate": false,
+          "key": "email-content",
+          "lifespan": null,
+          "mock-result": "ok",
+          "output-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "path": [
+            "schedule"
+          ],
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "<1604640892653204000.0.4079928963.3902013447.97920>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653125000.0.4079928963.3902013447.97900>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "table/get-data",
+          "default": "",
+          "key": "last-run",
+          "mock-result": "",
+          "output-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "path": [],
+          "refresh-lifespan": false,
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false
+        }
+      ]
+    },
+    {
+      "id": "<1604640892653156000.0.4079928963.3902013447.97913>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653130000.0.4079928963.3902013447.97902>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "table/set-data",
+          "cache": 0,
+          "iterate": false,
+          "key": "email-content",
+          "lifespan": null,
+          "mock-result": "ok",
+          "output-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "path": [],
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false,
+          "value": {
+            "content": "",
+            "schedule": "",
+            "title": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "<1604640892653143000.0.4079928963.3902013447.97907>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653130000.0.4079928963.3902013447.97902>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "table/get-data",
+          "default": "",
+          "key": "email-content",
+          "mock-result": "",
+          "output-location": {
+            "__LDATA__": [
+              "result"
+            ]
+          },
+          "path": [
+            "currentTime"
+          ],
+          "refresh-lifespan": false,
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false
+        },
+        {
+          "$action": "data/expression",
+          "expression": "var1 + 70",
+          "name": "Add 1min 10 secs",
+          "output-location": {
+            "__LDATA__": [
+              "result"
+            ]
+          },
+          "variables": [
+            {
+              "name": "var1",
+              "target": {
+                "__LDATA__": [
+                  "result"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "$action": "table/set-data",
+          "cache": 0,
+          "iterate": false,
+          "key": "email-content",
+          "lifespan": null,
+          "mock-result": "ok",
+          "name": "Set schedule in table",
+          "output-location": {
+            "__LDATA__": [
+              "result-status"
+            ]
+          },
+          "path": [
+            "schedule"
+          ],
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false,
+          "value": {
+            "__LDATA__": [
+              "result"
+            ]
+          }
+        },
+        {
+          "$action": "table/set-data",
+          "cache": 0,
+          "iterate": false,
+          "key": "email-count",
+          "lifespan": null,
+          "mock-result": "ok",
+          "name": "Reset email counter",
+          "output-location": {
+            "__LDATA__": []
+          },
+          "path": [],
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false,
+          "value": 0
+        },
+        {
+          "$action": "data/set",
+          "at-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "value": {
+            "scheduled": {
+              "__LDATA__": [
+                "result"
+              ]
+            },
+            "status": {
+              "__LDATA__": [
+                "result-status"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "<1604640892653134000.0.4079928963.3902013447.97903>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653125000.0.4079928963.3902013447.97900>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "data/log",
+          "label": "Last Run Flow Executed",
+          "level": "info",
+          "value": {
+            "__LDATA__": [
+              ""
+            ]
+          }
+        },
+        {
+          "$action": "datetime/current-unix-time",
+          "output-location": {
+            "__LDATA__": [
+              "result"
+            ]
+          },
+          "time-unit": "second"
+        },
+        {
+          "$action": "table/set-data",
+          "cache": 0,
+          "iterate": false,
+          "key": "last-run",
+          "lifespan": null,
+          "mock-result": "ok",
+          "name": "Set current time in table",
+          "output-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "path": [
+            "finish"
+          ],
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false,
+          "value": {
+            "__LDATA__": [
+              "result"
+            ]
+          }
+        },
+        {
+          "$action": "table/set-data",
+          "cache": 0,
+          "iterate": false,
+          "key": "email-count",
+          "lifespan": null,
+          "mock-result": "ok",
+          "name": "Reset Email Count",
+          "output-location": {
+            "__LDATA__": []
+          },
+          "path": [],
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false,
+          "value": 0
+        },
+        {
+          "$action": "table/set-data",
+          "cache": 0,
+          "iterate": false,
+          "key": "email-content",
+          "lifespan": null,
+          "mock-result": "ok",
+          "name": "Reset Schedule",
+          "output-location": {
+            "__LDATA__": []
+          },
+          "path": [
+            "schedule"
+          ],
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": true,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "<1604640892653140000.0.4079928963.3902013447.97906>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653125000.0.4079928963.3902013447.97900>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "config/update-timer",
+          "interval": 5000,
+          "output-location": {
+            "__$afref__": "data",
+            "path": []
+          },
+          "timer-id": "<1604640892653311000.0.4079928963.3902013447.97958>",
+          "timer-name": "",
+          "use-mock-result": false
+        },
+        {
+          "$action": "communication/smtp-send",
+          "body": "",
+          "from": {
+            "email": "name@company.com",
+            "name": "John Doe"
+          },
+          "mock-result": "success",
+          "output-location": {
+            "__LDATA__": [
+              "result"
+            ]
+          },
+          "password": "",
+          "port": 587,
+          "smtp-server": "smtp.company.com",
+          "subject": "",
+          "tls": "always",
+          "to": [
+            {
+              "email": "name@company.com",
+              "name": "John Doe"
+            }
+          ],
+          "use-mock-result": true,
+          "username": "name@company.com"
+        }
+      ]
+    },
+    {
+      "id": "<1604640892653154000.0.4079928963.3902013447.97912>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653128000.0.4079928963.3902013447.97901>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "table/get-data",
+          "default": "",
+          "key": "email-list",
+          "mock-result": "",
+          "output-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "path": [],
+          "refresh-lifespan": false,
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false
+        }
+      ]
+    },
+    {
+      "id": "<1604640892653151000.0.4079928963.3902013447.97911>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653128000.0.4079928963.3902013447.97901>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "table/delete-data",
+          "key": "email-list",
+          "mock-result": "ok",
+          "output-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "path": [],
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false
+        }
+      ]
+    },
+    {
+      "id": "<1604640892653202000.0.4079928963.3902013447.97919>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653125000.0.4079928963.3902013447.97900>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "config/stop-timer",
+          "timer-id": "<1604640892653308000.0.4079928963.3902013447.97957>",
+          "use-mock-result": false
+        },
+        {
+          "$action": "data/set",
+          "at-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "value": "Ok"
+        }
+      ]
+    },
+    {
+      "id": "<1604640892653145000.0.4079928963.3902013447.97908>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653130000.0.4079928963.3902013447.97902>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "json/decode",
+          "json": {
+            "__LDATA__": [
+              "request",
+              "body"
+            ]
+          },
+          "name": "Decode incoming JSON",
+          "output-location": {
+            "__LDATA__": [
+              "result"
+            ]
+          }
+        },
+        {
+          "$action": "table/set-data",
+          "cache": 0,
+          "iterate": false,
+          "key": "email-content",
+          "lifespan": null,
+          "mock-result": "ok",
+          "name": "Insert to Table",
+          "output-location": {
+            "__LDATA__": [
+              "content-status"
+            ]
+          },
+          "path": [],
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false,
+          "value": {
+            "__LDATA__": [
+              "result"
+            ]
+          }
+        },
+        {
+          "$action": "organization/group",
+          "do": [
+            {
+              "$action": "string/to-integer",
+              "name": "Get interval for timer set",
+              "output-location": {
+                "__LDATA__": [
+                  "interval"
+                ]
+              },
+              "string": {
+                "__LDATA__": [
+                  "result",
+                  "interval"
+                ]
+              }
+            },
+            {
+              "$action": "data/expression",
+              "expression": "var1 * 60000",
+              "name": "Covert interval to millisecond",
+              "output-location": {
+                "__LDATA__": [
+                  "interval"
+                ]
+              },
+              "variables": [
+                {
+                  "name": "var1",
+                  "target": {
+                    "__LDATA__": [
+                      "interval"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "$action": "table/set-data",
+              "cache": 0,
+              "iterate": false,
+              "key": "email-interval",
+              "lifespan": null,
+              "mock-result": "ok",
+              "output-location": {
+                "__LDATA__": []
+              },
+              "path": [],
+              "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+              "use-mock-result": false,
+              "value": {
+                "__LDATA__": [
+                  "interval"
+                ]
+              }
+            }
+          ],
+          "name": "Delay Send Timer Setting"
+        },
+        {
+          "$action": "organization/group",
+          "do": [
+            {
+              "$action": "datetime/from-unix-time",
+              "name": "Convert Unix time",
+              "output-location": {
+                "__LDATA__": [
+                  "scheduled-time"
+                ]
+              },
+              "time-unit": "second",
+              "unix-time": {
+                "__LDATA__": [
+                  "result",
+                  "schedule"
+                ]
+              }
+            },
+            {
+              "$action": "string/slice",
+              "length": 16,
+              "output-location": {
+                "__LDATA__": [
+                  "scheduled-time"
+                ]
+              },
+              "start": 0,
+              "string": {
+                "__LDATA__": [
+                  "scheduled-time"
+                ]
+              }
+            }
+          ],
+          "name": "Pre time to return"
+        },
+        {
+          "$action": "table/get-data",
+          "default": "",
+          "key": "email-content",
+          "mock-result": "",
+          "name": "Get the new setting to return",
+          "output-location": {
+            "__LDATA__": [
+              "table-read"
+            ]
+          },
+          "path": [],
+          "refresh-lifespan": false,
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false
+        },
+        {
+          "$action": "data/set",
+          "at-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "name": "Return new data",
+          "value": {
+            "content": {
+              "__LDATA__": [
+                "table-read",
+                "content"
+              ]
+            },
+            "email": {
+              "__$afref__": "data",
+              "path": [
+                "result",
+                "email"
+              ]
+            },
+            "interval": {
+              "__LDATA__": [
+                "result",
+                "interval"
+              ]
+            },
+            "name": {
+              "__LDATA__": [
+                "table-read",
+                "name"
+              ]
+            },
+            "postStatus": {
+              "__LDATA__": [
+                "content-status"
+              ]
+            },
+            "schedule": {
+              "__LDATA__": [
+                "scheduled-time"
+              ]
+            },
+            "title": {
+              "__LDATA__": [
+                "table-read",
+                "title"
+              ]
+            }
+          }
+        },
+        {
+          "$action": "table/set-data",
+          "cache": 0,
+          "iterate": false,
+          "key": "email-count",
+          "lifespan": null,
+          "mock-result": "ok",
+          "name": "Reset email counter",
+          "output-location": {
+            "__LDATA__": []
+          },
+          "path": [],
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "<1604640892653195000.0.4079928963.3902013447.97916>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653125000.0.4079928963.3902013447.97900>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "table/set-data",
+          "cache": 0,
+          "iterate": false,
+          "key": "email-count",
+          "lifespan": null,
+          "mock-result": "ok",
+          "name": "Reset Email Counter",
+          "output-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "path": [],
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "<1604640892653198000.0.4079928963.3902013447.97917>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653122000.0.4079928963.3902013447.97899>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "table/set-data",
+          "cache": 0,
+          "iterate": false,
+          "key": "smtp",
+          "lifespan": null,
+          "mock-result": "ok",
+          "output-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "path": [],
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false,
+          "value": {
+            "__LDATA__": [
+              "result"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "<1604640892653149000.0.4079928963.3902013447.97910>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653128000.0.4079928963.3902013447.97901>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "file/read",
+          "file": {
+            "__LDATA__": [
+              "request",
+              "body"
+            ]
+          },
+          "mock-result": [
+            "a,a,a,a",
+            "Peter,Jung,psdjung@gmail.com,interactor",
+            "Peter,Jung,psdjung@gmail.com,interactor"
+          ],
+          "name": "Read CSV file",
+          "output-location": {
+            "__LDATA__": [
+              "result"
+            ]
+          },
+          "use-mock-result": false
+        },
+        {
+          "$action": "string/regex-split",
+          "name": "Split each line",
+          "output-location": {
+            "__LDATA__": [
+              "result"
+            ]
+          },
+          "regex": "\\n+",
+          "string": {
+            "__LDATA__": [
+              "result"
+            ]
+          }
+        },
+        {
+          "$action": "array/drop",
+          "array": {
+            "__LDATA__": [
+              "result"
+            ]
+          },
+          "count": 1,
+          "name": "Drop the title line",
+          "output-location": {
+            "__LDATA__": [
+              "result"
+            ]
+          }
+        },
+        {
+          "$action": "array/count",
+          "array": {
+            "__LDATA__": [
+              "result"
+            ]
+          },
+          "name": "Count number of emails",
+          "output-location": {
+            "__LDATA__": [
+              "email-count"
+            ]
+          }
+        },
+        {
+          "$action": "table/set-data",
+          "cache": 0,
+          "iterate": false,
+          "key": "email-count",
+          "lifespan": null,
+          "mock-result": "ok",
+          "name": "Set # of email in table",
+          "output-location": {
+            "__$afref__": "data",
+            "path": [
+              "table-set-status"
+            ]
+          },
+          "path": [],
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false,
+          "value": {
+            "__LDATA__": [
+              "email-count"
+            ]
+          }
+        },
+        {
+          "$action": "data/set",
+          "at-location": {
+            "__LDATA__": [
+              "email-collection"
+            ]
+          },
+          "name": "Empty Array",
+          "value": []
+        },
+        {
+          "$action": "iteration/for-each",
+          "array": {
+            "__LDATA__": [
+              "result"
+            ]
+          },
+          "do": [
+            {
+              "$action": "string/split-with",
+              "name": "Split in comma",
+              "output-location": {
+                "__LDATA__": [
+                  "value"
+                ]
+              },
+              "parts": 0,
+              "pattern": ",",
+              "string": {
+                "__LDATA__": [
+                  "value"
+                ]
+              },
+              "trim": false
+            },
+            {
+              "$action": "array/insert-at",
+              "array": {
+                "__LDATA__": [
+                  "email-collection"
+                ]
+              },
+              "index": 0,
+              "name": "Insert each email in array",
+              "output-location": {
+                "__LDATA__": [
+                  "email-collection"
+                ]
+              },
+              "value": {
+                "__LDATA__": [
+                  "value"
+                ]
+              }
+            }
+          ],
+          "index-location": {
+            "__LDATA__": [
+              "index"
+            ]
+          },
+          "name": "Iterate over the emails to put in Array",
+          "value-location": {
+            "__LDATA__": [
+              "value"
+            ]
+          }
+        },
+        {
+          "$action": "table/set-data",
+          "cache": 0,
+          "iterate": false,
+          "key": "email-list",
+          "lifespan": null,
+          "mock-result": "ok",
+          "name": "Insert emails in table",
+          "output-location": {
+            "__LDATA__": [
+              "email-count-status"
+            ]
+          },
+          "path": [],
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false,
+          "value": {
+            "__LDATA__": [
+              "email-collection"
+            ]
+          }
+        },
+        {
+          "$action": "data/set",
+          "at-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "name": "Print status",
+          "value": {
+            "email-load-status": {
+              "__LDATA__": [
+                "table-set-status"
+              ]
+            },
+            "number-of-emails-loaded": {
+              "__LDATA__": [
+                "email-count"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "<1604640892653192000.0.4079928963.3902013447.97915>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653130000.0.4079928963.3902013447.97902>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "table/get-data",
+          "default": "",
+          "key": "email-content",
+          "mock-result": "",
+          "name": "Get email content",
+          "output-location": {
+            "__LDATA__": [
+              "result"
+            ]
+          },
+          "path": [],
+          "refresh-lifespan": false,
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false
+        },
+        {
+          "$action": "conditional/if",
+          "else": [],
+          "expression": "",
+          "name": "If schedule exists",
+          "then": [
+            {
+              "$action": "datetime/from-unix-time",
+              "name": "Covert Unix time",
+              "output-location": {
+                "__LDATA__": [
+                  "schedule"
+                ]
+              },
+              "time-unit": "second",
+              "unix-time": {
+                "__LDATA__": [
+                  "result",
+                  "schedule"
+                ]
+              }
+            }
+          ],
+          "variables": [
+            {
+              "$condition": "type/is-number",
+              "name": "condition1",
+              "target": {
+                "__LDATA__": [
+                  "result",
+                  "schedule"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "$action": "string/slice",
+          "length": 10,
+          "name": "Extract Date",
+          "output-location": {
+            "__LDATA__": [
+              "date"
+            ]
+          },
+          "start": 0,
+          "string": {
+            "__LDATA__": [
+              "schedule"
+            ]
+          }
+        },
+        {
+          "$action": "string/slice",
+          "length": 5,
+          "name": "Extract Time",
+          "output-location": {
+            "__LDATA__": [
+              "time"
+            ]
+          },
+          "start": 11,
+          "string": {
+            "__LDATA__": [
+              "schedule"
+            ]
+          }
+        },
+        {
+          "$action": "string/join",
+          "array": [
+            {
+              "__LDATA__": [
+                "date"
+              ]
+            },
+            "T",
+            {
+              "__LDATA__": [
+                "time"
+              ]
+            }
+          ],
+          "name": "Join Date with Time",
+          "output-location": {
+            "__LDATA__": [
+              "datetime"
+            ]
+          },
+          "separator": ""
+        },
+        {
+          "$action": "data/set",
+          "at-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "name": "Return Data",
+          "value": {
+            "content": {
+              "__LDATA__": [
+                "result",
+                "content"
+              ]
+            },
+            "email": {
+              "__LDATA__": [
+                "result",
+                "email"
+              ]
+            },
+            "interval": {
+              "__LDATA__": [
+                "result",
+                "interval"
+              ]
+            },
+            "name": {
+              "__LDATA__": [
+                "result",
+                "name"
+              ]
+            },
+            "postStatus": "ok",
+            "schedule": {
+              "__LDATA__": [
+                "datetime"
+              ]
+            },
+            "title": {
+              "__LDATA__": [
+                "result",
+                "title"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "InboundEndpointTest": [
+    {
+      "id": "<1604640892653259000.0.4079928963.3902013447.97945>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653125000.0.4079928963.3902013447.97900>",
+          "endpoint",
+          "<1604640892653202000.0.4079928963.3902013447.97919>"
+        ]
+      },
+      "value": {
+        "name": "default-test-input",
+        "request": {
+          "body": "",
+          "header": {},
+          "path": {},
+          "query": {}
+        }
+      }
+    },
+    {
+      "id": "<1604640892653255000.0.4079928963.3902013447.97943>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653125000.0.4079928963.3902013447.97900>",
+          "endpoint",
+          "<1604640892653140000.0.4079928963.3902013447.97906>"
+        ]
+      },
+      "value": {
+        "name": "default-test-input",
+        "request": {
+          "body": "",
+          "header": {},
+          "path": {},
+          "query": {}
+        }
+      }
+    },
+    {
+      "id": "<1604640892653266000.0.4079928963.3902013447.97948>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653125000.0.4079928963.3902013447.97900>",
+          "endpoint",
+          "<1604640892653134000.0.4079928963.3902013447.97903>"
+        ]
+      },
+      "value": {
+        "name": "default-test-input",
+        "request": {
+          "body": "",
+          "header": {},
+          "path": {},
+          "query": {}
+        }
+      }
+    },
+    {
+      "id": "<1604640892653263000.0.4079928963.3902013447.97947>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653125000.0.4079928963.3902013447.97900>",
+          "endpoint",
+          "<1604640892653136000.0.4079928963.3902013447.97904>"
+        ]
+      },
+      "value": {
+        "name": "default-test-input",
+        "request": {
+          "body": "",
+          "header": {},
+          "path": {},
+          "query": {}
+        }
+      }
+    },
+    {
+      "id": "<1604640892653305000.0.4079928963.3902013447.97956>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653130000.0.4079928963.3902013447.97902>",
+          "endpoint",
+          "<1604640892653143000.0.4079928963.3902013447.97907>"
+        ]
+      },
+      "value": {
+        "name": "default-test-input",
+        "request": {
+          "body": "",
+          "header": {},
+          "path": {},
+          "query": {}
+        }
+      }
+    },
+    {
+      "id": "<1604640892653251000.0.4079928963.3902013447.97941>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653128000.0.4079928963.3902013447.97901>",
+          "endpoint",
+          "<1604640892653154000.0.4079928963.3902013447.97912>"
+        ]
+      },
+      "value": {
+        "name": "default-test-input",
+        "request": {
+          "body": "",
+          "header": {},
+          "path": {},
+          "query": {}
+        }
+      }
+    },
+    {
+      "id": "<1604640892653247000.0.4079928963.3902013447.97939>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653128000.0.4079928963.3902013447.97901>",
+          "endpoint",
+          "<1604640892653149000.0.4079928963.3902013447.97910>"
+        ]
+      },
+      "value": {
+        "name": "default-test-input",
+        "request": {
+          "body": "/Users/peterjung/Desktop/email_list.csv",
+          "header": {},
+          "path": {},
+          "query": {}
+        }
+      }
+    },
+    {
+      "id": "<1604640892653261000.0.4079928963.3902013447.97946>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653130000.0.4079928963.3902013447.97902>",
+          "endpoint",
+          "<1604640892653192000.0.4079928963.3902013447.97915>"
+        ]
+      },
+      "value": {
+        "name": "default-test-input",
+        "request": {
+          "body": "",
+          "header": {},
+          "path": {},
+          "query": {}
+        }
+      }
+    },
+    {
+      "id": "<1604640892653299000.0.4079928963.3902013447.97954>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653122000.0.4079928963.3902013447.97899>",
+          "endpoint",
+          "<1604640892653198000.0.4079928963.3902013447.97917>"
+        ]
+      },
+      "value": {
+        "name": "default-test-input",
+        "request": {
+          "body": "",
+          "header": {},
+          "path": {},
+          "query": {}
+        }
+      }
+    },
+    {
+      "id": "<1604640892653272000.0.4079928963.3902013447.97951>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653122000.0.4079928963.3902013447.97899>",
+          "endpoint",
+          "<1604640892653158000.0.4079928963.3902013447.97914>"
+        ]
+      },
+      "value": {
+        "name": "default-test-input",
+        "request": {
+          "body": "",
+          "header": {},
+          "path": {},
+          "query": {}
+        }
+      }
+    },
+    {
+      "id": "<1604640892653249000.0.4079928963.3902013447.97940>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653130000.0.4079928963.3902013447.97902>",
+          "endpoint",
+          "<1604640892653156000.0.4079928963.3902013447.97913>"
+        ]
+      },
+      "value": {
+        "name": "default-test-input",
+        "request": {
+          "body": "",
+          "header": {},
+          "path": {},
+          "query": {}
+        }
+      }
+    },
+    {
+      "id": "<1604640892653270000.0.4079928963.3902013447.97950>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653125000.0.4079928963.3902013447.97900>",
+          "endpoint",
+          "<1604640892653195000.0.4079928963.3902013447.97916>"
+        ]
+      },
+      "value": {
+        "name": "default-test-input",
+        "request": {
+          "body": "",
+          "header": {},
+          "path": {},
+          "query": {}
+        }
+      }
+    },
+    {
+      "id": "<1604640892653302000.0.4079928963.3902013447.97955>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653125000.0.4079928963.3902013447.97900>",
+          "endpoint",
+          "<1604640892653200000.0.4079928963.3902013447.97918>"
+        ]
+      },
+      "value": {
+        "name": "default-test-input",
+        "request": {
+          "body": "",
+          "header": {},
+          "path": {},
+          "query": {}
+        }
+      }
+    },
+    {
+      "id": "<1604640892653268000.0.4079928963.3902013447.97949>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653130000.0.4079928963.3902013447.97902>",
+          "endpoint",
+          "<1604640892653145000.0.4079928963.3902013447.97908>"
+        ]
+      },
+      "value": {
+        "name": "default-test-input",
+        "request": {
+          "body": "{\"title\":\"asdf\",\"content\":\"<p>asdf</p>\",\"schedule\":1605230040,\"name\":\"asdf\",\"email\":\"asdf\",\"interval\":\"`\",\"currentTime\":1604798158.312,\"timeZone\":28800}",
+          "header": {},
+          "path": {},
+          "query": {}
+        }
+      }
+    },
+    {
+      "id": "<1604640892653276000.0.4079928963.3902013447.97953>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653128000.0.4079928963.3902013447.97901>",
+          "endpoint",
+          "<1604640892653151000.0.4079928963.3902013447.97911>"
+        ]
+      },
+      "value": {
+        "name": "default-test-input",
+        "request": {
+          "body": "",
+          "header": {},
+          "path": {},
+          "query": {}
+        }
+      }
+    },
+    {
+      "id": "<1604640892653253000.0.4079928963.3902013447.97942>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653125000.0.4079928963.3902013447.97900>",
+          "endpoint",
+          "<1604640892653204000.0.4079928963.3902013447.97920>"
+        ]
+      },
+      "value": {
+        "name": "default-test-input",
+        "request": {
+          "body": "",
+          "header": {},
+          "path": {},
+          "query": {}
+        }
+      }
+    },
+    {
+      "id": "<1604640892653274000.0.4079928963.3902013447.97952>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653122000.0.4079928963.3902013447.97899>",
+          "endpoint",
+          "<1604640892653138000.0.4079928963.3902013447.97905>"
+        ]
+      },
+      "value": {
+        "name": "default-test-input",
+        "request": {
+          "body": "",
+          "header": {},
+          "path": {},
+          "query": {}
+        }
+      }
+    },
+    {
+      "id": "<1604640892653257000.0.4079928963.3902013447.97944>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1604640892653125000.0.4079928963.3902013447.97900>",
+          "endpoint",
+          "<1604640892653147000.0.4079928963.3902013447.97909>"
+        ]
+      },
+      "value": {
+        "name": "default-test-input",
+        "request": {
+          "body": "",
+          "header": {},
+          "path": {},
+          "query": {}
+        }
+      }
+    }
+  ],
+  "Timer": [
+    {
+      "id": "<1604640892653311000.0.4079928963.3902013447.97958>",
+      "meta": {},
+      "value": {
+        "interval": {
+          "__$afref__": "table",
+          "key": "email-interval",
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>"
+        },
+        "name": "Delay Send",
+        "start-on-bootup": false
+      }
+    },
+    {
+      "id": "<1604640892653308000.0.4079928963.3902013447.97957>",
+      "meta": {},
+      "value": {
+        "interval": 60000,
+        "name": "Scheduler",
+        "start-on-bootup": true
+      }
+    }
+  ],
+  "TimerFlow": [
+    {
+      "id": "<1604640892653311000.0.4079928963.3902013447.97958>",
+      "meta": {},
+      "value": [
+        {
+          "$action": "table/get-data",
+          "default": "",
+          "key": "email-count",
+          "mock-result": 0,
+          "name": "Get Lasted Email Sent Count",
+          "output-location": {
+            "__LDATA__": [
+              "email-sent-count"
+            ]
+          },
+          "path": [],
+          "refresh-lifespan": false,
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false
+        },
+        {
+          "$action": "table/get-data",
+          "default": "",
+          "key": "email-content",
+          "mock-result": "",
+          "name": "Get Email Content",
+          "output-location": {
+            "__LDATA__": [
+              "email-content"
+            ]
+          },
+          "path": [],
+          "refresh-lifespan": false,
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false
+        },
+        {
+          "$action": "table/get-data",
+          "default": "",
+          "key": "email-list",
+          "mock-result": "",
+          "name": "Get Email List",
+          "output-location": {
+            "__LDATA__": [
+              "email-list"
+            ]
+          },
+          "path": [],
+          "refresh-lifespan": false,
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false
+        },
+        {
+          "$action": "table/get-data",
+          "default": "",
+          "key": "smtp",
+          "mock-result": "",
+          "name": "Get SMTP Setting",
+          "output-location": {
+            "__LDATA__": [
+              "smtp-settings"
+            ]
+          },
+          "path": [],
+          "refresh-lifespan": false,
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false
+        },
+        {
+          "$action": "string/to-integer",
+          "name": "SMTP Port to integer ",
+          "output-location": {
+            "__LDATA__": [
+              "smtp-settings",
+              "smtpServerPort"
+            ]
+          },
+          "string": {
+            "__LDATA__": [
+              "smtp-settings",
+              "smtpServerPort"
+            ]
+          }
+        },
+        {
+          "$action": "array/count",
+          "array": {
+            "__LDATA__": [
+              "email-list"
+            ]
+          },
+          "name": "Count new emails ",
+          "output-location": {
+            "__LDATA__": [
+              "new-email-count"
+            ]
+          }
+        },
+        {
+          "$action": "conditional/if",
+          "else": [
+            {
+              "$action": "data/log",
+              "label": "Delay Sent: Email FINISHED",
+              "level": "info",
+              "value": {
+                "__$afref__": "data",
+                "path": []
+              }
+            },
+            {
+              "$action": "data/log",
+              "label": "",
+              "level": "info",
+              "name": "data/log",
+              "value": {
+                "SMTP": {
+                  "__LDATA__": [
+                    "smtp-settings"
+                  ]
+                },
+                "email-content": {
+                  "__LDATA__": [
+                    "email-content"
+                  ]
+                },
+                "to-email": {
+                  "__LDATA__": [
+                    "email-list",
+                    {
+                      "__LDATA__": [
+                        "email-sent-count"
+                      ]
+                    },
+                    2
+                  ]
+                },
+                "to-name": {
+                  "__LDATA__": [
+                    "email-list",
+                    {
+                      "__LDATA__": [
+                        "email-sent-count"
+                      ]
+                    },
+                    0
+                  ]
+                }
+              }
+            },
+            {
+              "$action": "communication/http-request",
+              "body": "",
+              "header": {},
+              "method": "POST",
+              "mock-result": {
+                "body": "",
+                "header": {},
+                "status-code": 200
+              },
+              "output-location": {
+                "__LDATA__": [
+                  "result"
+                ]
+              },
+              "query": {},
+              "timeout": 5000,
+              "url": "localhost:1114/last-run-set",
+              "use-mock-result": true
+            },
+            {
+              "$action": "config/start-timer",
+              "timer-id": "<1604640892653308000.0.4079928963.3902013447.97957>",
+              "use-mock-result": true
+            }
+          ],
+          "expression": "",
+          "then": [
+            {
+              "$action": "conditional/if",
+              "else": [
+                {
+                  "$action": "data/log",
+                  "label": "Delay Sent: EMAIL SENT",
+                  "level": "info",
+                  "value": {
+                    "__LDATA__": [
+                      "email-sent-count"
+                    ]
+                  }
+                },
+                {
+                  "$action": "string/replace",
+                  "output-location": {
+                    "__LDATA__": [
+                      "email-content",
+                      "content"
+                    ]
+                  },
+                  "pattern": "src=",
+                  "replacement": "src=3D",
+                  "string": {
+                    "__LDATA__": [
+                      "email-content",
+                      "content"
+                    ]
+                  }
+                },
+                {
+                  "$action": "string/join",
+                  "array": [
+                    "<!doctype html> <html lang=\"en\"><head></head><body>",
+                    {
+                      "__LDATA__": [
+                        "email-content",
+                        "content"
+                      ]
+                    },
+                    "</body></html>"
+                  ],
+                  "name": "Make Content into HTML",
+                  "output-location": {
+                    "__LDATA__": [
+                      "email-content",
+                      "content"
+                    ]
+                  },
+                  "separator": ""
+                },
+                {
+                  "$action": "communication/smtp-send",
+                  "body": {
+                    "__LDATA__": [
+                      "email-content",
+                      "content"
+                    ]
+                  },
+                  "from": {
+                    "email": {
+                      "__LDATA__": [
+                        "email-content",
+                        "email"
+                      ]
+                    },
+                    "name": {
+                      "__LDATA__": [
+                        "email-content",
+                        "name"
+                      ]
+                    }
+                  },
+                  "mock-result": null,
+                  "name": "Send Email",
+                  "output-location": {
+                    "__LDATA__": [
+                      "result"
+                    ]
+                  },
+                  "password": {
+                    "__LDATA__": [
+                      "smtp-settings",
+                      "smtpServerPassword"
+                    ]
+                  },
+                  "port": {
+                    "__LDATA__": [
+                      "smtp-settings",
+                      "smtpServerPort"
+                    ]
+                  },
+                  "smtp-server": {
+                    "__LDATA__": [
+                      "smtp-settings",
+                      "smtpServerUrl"
+                    ]
+                  },
+                  "subject": {
+                    "__LDATA__": [
+                      "email-content",
+                      "title"
+                    ]
+                  },
+                  "tls": {
+                    "__LDATA__": [
+                      "smtp-settings",
+                      "smtpServerTLS"
+                    ]
+                  },
+                  "to": [
+                    {
+                      "email": {
+                        "__LDATA__": [
+                          "email-list",
+                          {
+                            "__LDATA__": [
+                              "email-sent-count"
+                            ]
+                          },
+                          2
+                        ]
+                      },
+                      "name": {
+                        "__LDATA__": [
+                          "email-list",
+                          {
+                            "__LDATA__": [
+                              "email-sent-count"
+                            ]
+                          },
+                          0
+                        ]
+                      }
+                    }
+                  ],
+                  "use-mock-result": false,
+                  "username": {
+                    "__LDATA__": [
+                      "smtp-settings",
+                      "smtpServerUsername"
+                    ]
+                  }
+                },
+                {
+                  "$action": "data/log",
+                  "label": "",
+                  "level": "info",
+                  "name": "data/log",
+                  "value": {
+                    "SMTP": {
+                      "__LDATA__": [
+                        "smtp-settings"
+                      ]
+                    },
+                    "email-content": {
+                      "__LDATA__": [
+                        "email-content"
+                      ]
+                    },
+                    "to-email": {
+                      "__LDATA__": [
+                        "email-list",
+                        {
+                          "__LDATA__": [
+                            "email-sent-count"
+                          ]
+                        },
+                        2
+                      ]
+                    },
+                    "to-name": {
+                      "__LDATA__": [
+                        "email-list",
+                        {
+                          "__LDATA__": [
+                            "email-sent-count"
+                          ]
+                        },
+                        0
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$action": "table/increment-data",
+                  "amount": 1,
+                  "key": "email-count",
+                  "mock-result": "ok",
+                  "name": "Increment Counter when email sent",
+                  "output-location": {
+                    "__LDATA__": [
+                      "counter-increment-status"
+                    ]
+                  },
+                  "path": [],
+                  "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+                  "use-mock-result": false
+                }
+              ],
+              "expression": "",
+              "name": "Check if running for first time",
+              "then": [
+                {
+                  "$action": "data/log",
+                  "label": "Delay Sent: EMAIL SENT",
+                  "level": "info",
+                  "value": {
+                    "__LDATA__": [
+                      "email-sent-count"
+                    ]
+                  }
+                },
+                {
+                  "$action": "config/stop-timer",
+                  "timer-id": "<1604640892653308000.0.4079928963.3902013447.97957>",
+                  "use-mock-result": false
+                },
+                {
+                  "$action": "datetime/now",
+                  "output-location": {
+                    "__LDATA__": [
+                      "current-time"
+                    ]
+                  },
+                  "time-unit": "second"
+                },
+                {
+                  "$action": "table/set-data",
+                  "cache": 0,
+                  "iterate": false,
+                  "key": "last-run",
+                  "lifespan": null,
+                  "mock-result": "ok",
+                  "name": "Timestamp when start sending email",
+                  "output-location": {
+                    "__LDATA__": []
+                  },
+                  "path": [
+                    "start"
+                  ],
+                  "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+                  "use-mock-result": false,
+                  "value": {
+                    "__$afref__": "data",
+                    "path": [
+                      "current-time"
+                    ]
+                  }
+                },
+                {
+                  "$action": "string/replace",
+                  "output-location": {
+                    "__LDATA__": [
+                      "email-content",
+                      "content"
+                    ]
+                  },
+                  "pattern": "src=",
+                  "replacement": "src=3D",
+                  "string": {
+                    "__LDATA__": [
+                      "email-content",
+                      "content"
+                    ]
+                  }
+                },
+                {
+                  "$action": "string/join",
+                  "array": [
+                    "<html lang=\"en\"><head></head><body>",
+                    {
+                      "__LDATA__": [
+                        "email-content",
+                        "content"
+                      ]
+                    },
+                    "</body></html>"
+                  ],
+                  "name": "Make Content into HTML",
+                  "output-location": {
+                    "__LDATA__": [
+                      "email-content",
+                      "content"
+                    ]
+                  },
+                  "separator": ""
+                },
+                {
+                  "$action": "communication/smtp-send",
+                  "body": {
+                    "__LDATA__": [
+                      "email-content",
+                      "content"
+                    ]
+                  },
+                  "from": {
+                    "email": {
+                      "__LDATA__": [
+                        "email-content",
+                        "email"
+                      ]
+                    },
+                    "name": {
+                      "__LDATA__": [
+                        "email-content",
+                        "name"
+                      ]
+                    }
+                  },
+                  "mock-result": null,
+                  "name": "Send Email",
+                  "output-location": {
+                    "__LDATA__": [
+                      "result"
+                    ]
+                  },
+                  "password": {
+                    "__LDATA__": [
+                      "smtp-settings",
+                      "smtpServerPassword"
+                    ]
+                  },
+                  "port": {
+                    "__LDATA__": [
+                      "smtp-settings",
+                      "smtpServerPort"
+                    ]
+                  },
+                  "smtp-server": {
+                    "__LDATA__": [
+                      "smtp-settings",
+                      "smtpServerUrl"
+                    ]
+                  },
+                  "subject": {
+                    "__LDATA__": [
+                      "email-content",
+                      "title"
+                    ]
+                  },
+                  "tls": {
+                    "__LDATA__": [
+                      "smtp-settings",
+                      "smtpServerTLS"
+                    ]
+                  },
+                  "to": [
+                    {
+                      "email": {
+                        "__LDATA__": [
+                          "email-list",
+                          {
+                            "__LDATA__": [
+                              "email-sent-count"
+                            ]
+                          },
+                          2
+                        ]
+                      },
+                      "name": {
+                        "__LDATA__": [
+                          "email-list",
+                          {
+                            "__LDATA__": [
+                              "email-sent-count"
+                            ]
+                          },
+                          0
+                        ]
+                      }
+                    }
+                  ],
+                  "use-mock-result": false,
+                  "username": {
+                    "__LDATA__": [
+                      "smtp-settings",
+                      "smtpServerUsername"
+                    ]
+                  }
+                },
+                {
+                  "$action": "data/log",
+                  "label": "Before email is sent",
+                  "level": "info",
+                  "name": "data/log",
+                  "value": {
+                    "SMTP": {
+                      "__LDATA__": [
+                        "smtp-settings"
+                      ]
+                    },
+                    "email-content": {
+                      "__LDATA__": [
+                        "email-content"
+                      ]
+                    },
+                    "to-email": {
+                      "__LDATA__": [
+                        "email-list",
+                        {
+                          "__LDATA__": [
+                            "email-sent-count"
+                          ]
+                        },
+                        2
+                      ]
+                    },
+                    "to-name": {
+                      "__LDATA__": [
+                        "email-list",
+                        {
+                          "__LDATA__": [
+                            "email-sent-count"
+                          ]
+                        },
+                        0
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$action": "data/log",
+                  "label": "After Email is sent",
+                  "level": "info",
+                  "value": {
+                    "__LDATA__": []
+                  }
+                },
+                {
+                  "$action": "table/increment-data",
+                  "amount": 1,
+                  "key": "email-count",
+                  "mock-result": "ok",
+                  "name": "Increment Counter when email sent",
+                  "output-location": {
+                    "__LDATA__": [
+                      "counter-increment-status"
+                    ]
+                  },
+                  "path": [],
+                  "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+                  "use-mock-result": false
+                }
+              ],
+              "variables": [
+                {
+                  "$condition": "number/is-equal",
+                  "name": "condition1",
+                  "target": {
+                    "__LDATA__": [
+                      "email-sent-count"
+                    ]
+                  },
+                  "value": 0
+                }
+              ]
+            }
+          ],
+          "variables": [
+            {
+              "$condition": "number/is-less",
+              "name": "condition1",
+              "target": {
+                "__LDATA__": [
+                  "email-sent-count"
+                ]
+              },
+              "value": {
+                "__LDATA__": [
+                  "new-email-count"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "<1604640892653308000.0.4079928963.3902013447.97957>",
+      "meta": {},
+      "value": [
+        {
+          "$action": "config/stop-timer",
+          "name": "Stop Delay Send Timer",
+          "timer-id": "<1604640892653311000.0.4079928963.3902013447.97958>",
+          "use-mock-result": true
+        },
+        {
+          "$action": "datetime/current-unix-time",
+          "name": "Get current time in Unix",
+          "output-location": {
+            "__LDATA__": [
+              "current-time-unix"
+            ]
+          },
+          "time-unit": "second"
+        },
+        {
+          "$action": "table/get-data",
+          "default": "",
+          "key": "email-content",
+          "mock-result": "",
+          "name": "Time Zone",
+          "output-location": {
+            "__LDATA__": [
+              "time-zone"
+            ]
+          },
+          "path": [
+            "timeZone"
+          ],
+          "refresh-lifespan": false,
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false
+        },
+        {
+          "$action": "data/expression",
+          "expression": "var1 - var2",
+          "name": "Current Local Time",
+          "output-location": {
+            "__LDATA__": [
+              "current-time-unix"
+            ]
+          },
+          "variables": [
+            {
+              "name": "var1",
+              "target": {
+                "__LDATA__": [
+                  "current-time-unix"
+                ]
+              }
+            },
+            {
+              "name": "var2",
+              "target": {
+                "__LDATA__": [
+                  "time-zone"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "$action": "data/expression",
+          "expression": "var1 + 61",
+          "name": "Add 1 min for if condition",
+          "output-location": {
+            "__LDATA__": [
+              "current-time-unix-plus-1min"
+            ]
+          },
+          "variables": [
+            {
+              "name": "var1",
+              "target": {
+                "__LDATA__": [
+                  "current-time-unix"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "$action": "table/get-data",
+          "default": "",
+          "key": "email-content",
+          "mock-result": "",
+          "name": "table/get-data ",
+          "output-location": {
+            "__LDATA__": [
+              "scheduled-time"
+            ]
+          },
+          "path": [
+            "schedule"
+          ],
+          "refresh-lifespan": false,
+          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "use-mock-result": false
+        },
+        {
+          "$action": "conditional/if",
+          "else": [
+            {
+              "$action": "data/log",
+              "label": "Scheduler: DOING NOTHING",
+              "level": "info",
+              "value": {
+                "__LDATA__": []
+              }
+            }
+          ],
+          "expression": "",
+          "name": "conditional/if ",
+          "then": [
+            {
+              "$action": "data/log",
+              "label": "Scheduler: START TIMER",
+              "level": "info",
+              "value": {
+                "__$afref__": "data",
+                "path": []
+              }
+            },
+            {
+              "$action": "config/start-timer",
+              "timer-id": "<1604640892653311000.0.4079928963.3902013447.97958>",
+              "use-mock-result": true
+            }
+          ],
+          "variables": [
+            {
+              "$condition": "number/is-greater",
+              "name": "condition1",
+              "target": {
+                "__LDATA__": [
+                  "scheduled-time"
+                ]
+              },
+              "value": {
+                "__LDATA__": [
+                  "current-time-unix"
+                ]
+              }
+            },
+            {
+              "$condition": "number/is-less",
+              "name": "condition2",
+              "target": {
+                "__LDATA__": [
+                  "scheduled-time"
+                ]
+              },
+              "value": {
+                "__LDATA__": [
+                  "current-time-unix-plus-1min"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
