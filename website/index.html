@@ -1,0 +1,615 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Scheduled Email Sender</title>
+  <meta name="description" content="Scheduled Email Sender">
+  <link rel="stylesheet" href="styles.css?v=1.0">
+
+  <!-- Richtext Editor related imports -->
+  <!-- jQuery is required -->
+  <script src="wysiwyg-editor-summernote/dist/jquery.min.js"></script>
+  <!-- For <a href="https://www.jqueryscript.net/tags.php?/bootstrap 4/">Bootstrap 4</a> -->
+  <link rel="stylesheet" href="wysiwyg-editor-summernote/dist/summernote-bs4.css" />
+  <script src="wysiwyg-editor-summernote/dist/summernote-bs4.js"></script>
+
+  <!-- For Bootstrap 3 -->
+  <link rel="stylesheet" href="wysiwyg-editor-summernote/dist/summernote.css" />
+  <script src="wysiwyg-editor-summernote/dist/summernote.js"></script>
+
+  <!-- Without any framework -->
+  <link rel="stylesheet" href="wysiwyg-editor-summernote/dist/summernote-lite.css" />
+  <script src="wysiwyg-editor-summernote/dist/summernote-lite.js"></script>
+  <script src="wysiwyg-editor-summernote/dist/lang/summernote-es-ES.js"></script>
+
+</head>
+
+<body onload="onPageLoad()">
+  <!---           Navigation             -->
+  <span class="title-h1">Scheduled Email Sender </span><span style="float:right">Powered by <b>API AutoFlow</b></span>
+  <span id="server-status-message"></span>
+  <ul class="no-bullets">
+    <li><a href="javascript:rudrSwitchTab('tb_0', 'content_0');" id="tb_0" class="tabmenu active" onclick="guideTabClick()">Guide</a></li>
+    <li><a href="javascript:rudrSwitchTab('tb_1', 'content_1');" id="tb_1" class="tabmenu">Load Email List</a></li>
+    <li><a href="javascript:rudrSwitchTab('tb_2', 'content_2');" id="tb_2" class="tabmenu" onclick="checkIfEmaiScheduled()">Compose Email</a></li>
+    <li><a href="javascript:rudrSwitchTab('tb_3', 'content_3');" id="tb_3" class="tabmenu" onclick="checkIfSmtpSettingExists()">SMTP Settings</a></li>
+    <li><a href="javascript:rudrSwitchTab('tb_4', 'content_4');" id="tb_4" class="tabmenu">Troubleshoot</a></li>
+  </ul>
+
+  <!---           Load Email List Page             -->
+  <div id="content_0" class="tabcontent">
+    <div id="guideInstruction" style="display:none; margin: 10px 0 15px">
+      <h4 style="text-decoration:underline;">Developer Guide</h4>
+      <b class="email-title">API Information: </b>Coming Soon<br />
+      <b class="email-title">Developer Video: </b>Coming soon</p>
+      <h4 style="text-decoration:underline;">How to use the Scheduler</h4>
+      <p><b>User Guide Below: </b><a href="https://interactor.com/autoflow/use-cases/scheduled-email-sender/" target="_blank">https://interactor.com/autoflow/use-cases/scheduled-email-sender/</a><br />
+      <b class="email-title">Tutorial Video: </b>Coming Soon/p>
+    </div>
+    <embed id="guideContent" style="width:100%; height:100vh;" src="https://interactor.com/autoflow/use-cases/scheduled-email-sender/"/>
+  </div>
+
+  <!---           Load Email List Page             -->
+  <div id="content_1" class="tabcontent" style="display:none;">
+    <span class="steps-title">Step 1: </span><input id="file-input" type="text" name="name" placeholder="Path to CSV file" required />
+    <span>MAC: Enter <i>pwd</i> in the terminal to find the path /Users/peter/Desktop/test.csv</span>
+    <div class="buttons">
+      <span class="steps-title">Step 2: </span>
+      <button type="button" onclick="loadEmail()">Load Email from CSV</button>
+      <button type="button" onclick="getEmailList()">Preview Loaded Emails</button>
+      <button type="button" onclick="deleteEmailList()">Clear Loaded Emails</button>
+    </div>
+    <div id="email-load-status" class="status-message"></div>
+    <div id="email-list" class="page-content"></div>
+  </div>
+
+  <!---           Compose Email Page             -->
+  <div id="content_2" class="tabcontent" style="display:none;">
+    <div id="email-content-form">
+      <div class="form-wrapper pg-half">
+        <div class="buttons">
+          <button type="button" onclick="scheduleEmail()">Schedule Email</button>
+          <button type="button" onclick="checkIfEmaiScheduled()" id="composeEmailCancelButton" style="display:none;">Cancel</button>
+          <span id="compose-error-message" class="status-message" style="color:red"></span>
+        </div>
+        <label for="emailTitle">Schedule:</label>
+        <input type="datetime-local" id="email-schedule" name="email-schedule" placeholder="YYYY-MM-DDTHH:MM" required><br>
+        <label for="email-title">Title:</label>
+        <input type="text" id="email-title" name="email-title" required><br>
+        <label for="email-content">Content:</label>
+      </div>
+      <div class="pg-half">
+        <div class="sub-title"> </div>
+        <label for="email-title">From Name:</label>
+        <input type="text" id="email-from" name="email-from" placeholder="Display Name"><br>
+        <label for="email-title">From Email:</label>
+        <input type="email" id="email-address" name="email-address" placeholder="your@company.com"><br>
+        <label for="email-title">Interval:</label>
+        <input type="text" id="email-send-interval" name="email-send-interval" value="1"><span> Minute(s)</span><br>
+        <div class="input-explanation-notes">Interval between each email to avoid spam filter.</div>
+      </div>
+
+      <textarea class="summernote" id="email-content"></textarea>
+    </div>
+    <div id="email-content-show" style="display:none">
+      <div class="form-wrapper pg-half">
+        <div class="buttons">
+          <button type="button" onclick="emailContent()">Edit Email Content</button>
+          <button type="button" onclick="unscheduleEmail()">Delete Email</button>
+          <span id="scheduled-message" class="status-message"></span>
+        </div>
+        <span class="email-title">Schedule:</span>
+        <span id="email-schedule-value" class="email-content-details"></span><br>
+        <span class="email-title">Title:</span>
+        <span id="email-title-value" class="email-content-details"></span><br>
+      </div>
+      <div class="pg-half">
+        <div class="sub-title"> </div>
+        <span class="email-title">From Name:</span>
+        <span id="email-from-value" class="email-content-details"></span><br>
+        <span class="email-title">From Email:</span>
+        <span id="email-address-value" class="email-content-details"></span><br>
+        <span class="email-title">Interval:</span>
+        <span id="email-send-interval-value" class="email-content-details"></span><span> Minute(s)</span><br>
+      </div>
+      <div id="view-email-content" class="page-content"></div>
+      <span class="email-title" style="width:100%">Content:</span>
+      <span id="email-content-value" class="email-content-details"></span>
+    </div>
+  </div>
+
+  <!---           SMTP Settings Page             -->
+  <div id="content_3" class="tabcontent" style="display:none;">
+    <div id="smtp-content-form">
+      <div class="buttons">
+        <button type="button" onclick="setSmtpServer()">Save</button>
+        <button type="button" onclick="checkIfSmtpSettingExists()" id="smtpSettingsCancelButton" style="display:none;">Cancel</button>
+      </div>
+      <label for="email-title">STMP Server:</label>
+      <input type="text" id="smtp-server-url" name="smtp-server-url" placeholder="smtp.company.com"><br>
+      <label for="email-title">User Name:</label>
+      <input type="text" id="smtp-server-username" name="smtp-server-username" placeholder="you@company.com"><br>
+      <label for="email-titlet">Password:</label>
+      <input type="password" id="smtp-server-password" name="smtp-server-password"><br>
+      <label for="email-title">TLS:</label>
+      <select id="smtp-server-tls" name="smtp-server-tls">
+        <option type="text" value="always">
+          Always
+        </option>
+        <option type="text" value="if-avaiable">
+          If Available
+        </option>
+        <option type="text" value="never">
+          Never
+        </option>
+      </select><br>
+      <label for="email-title">Port:</label>
+      <input type="text" id="smtp-server-port" name="smtp-server-port" value="587">
+    </div>
+    <div id="smtp-content-details" style="display:none;">
+      <div class="buttons">
+        <button type="button" onclick="smtpEdit()">Edit</button>
+        <button type="button" onclick="smtpClearSetting()">Clear Settings</button>
+      </div>
+      <span class="email-title">STMP Server:</span>
+      <span type="text" id="smtp-server-url-value"></span><br>
+      <span class="email-title">User Name:</span>
+      <span type="text" id="smtp-server-username-value"></span><br>
+      <span class="email-title">Password:</span>
+      <span type="text" id="smtp-server-password-value" style="display:none"> </span>
+      <button type="button" onclick="showPassword()">Show Password</button><br>
+      <span class="email-title">TLS:</span>
+      <span type="text" id="smtp-server-tls-value"></span><br>
+      <span class="email-title">Port:</span>
+      <span type="text" id="smtp-server-port-value"></span>
+    </div>
+    <div id="scheduled-message" class="status-message"></div>
+    <div id="view-email-content" class="page-content"></div>
+    <div class="">Running on localhost using GMAIL SMTP? <a
+        href="https://help.groovehq.com/help/why-wont-my-gmail-smtp-settings-work#:~:text=In%20Google%20Mail%2C%20you%20must,this%20setting%20must%20be%20enabled%3A&text=Please%20note%20that%20these%20options,enabled%20for%20your%20Google%20account"
+        target="_blank">Follow instruction to allow "less secure" apps access</a>
+    </div>
+  </div>
+
+  <!---           Troubleshoot Page             -->
+  <div id="content_4" class="tabcontent" style="display:none;">
+    <div class="sub-title">
+      Reset Schedule
+    </div>
+    <span>Troubleshoot: If "Delay Send" timer turns on together when "Scheduler" timer is started</span>
+    <div class="buttons">
+      <button type="button" onclick="scheduleReset()">Schedule Reset</button>
+    </div>
+    <div id="schedule-status-message" class="status-message"></div>
+    <div class="sub-title">
+      Email Counter
+    </div>
+    <span>Troubleshoot: Counts the number of lines in the CSV file excluding the first line (header) </span>
+    <div class="buttons">
+      <button type="button" onclick="emailCounterReset()">Email Counter Reset</button>
+      <button type="button" onclick="emailCounterRead()">Email Counter Read</button>
+    </div>
+    <div id="email-counter-status-message" class="status-message"></div>
+    <div class="sub-title">
+      Email send interval timer server (instance)
+    </div>
+    <span>Troubleshoot: Force quit both [Delay Send] and [Scheduler] timers if email continues to be sent even after it reach the last email on the list.</span>
+    <div class="buttons">
+      <button type="button" onclick="delaySendTimerOff()">Delay Send Timer Off</button>
+      <button type="button" onclick="schedulerOff()">Scheduler Off</button>
+      <!-- <button type="button" onclick="()">Delay Send Status</button> -->
+    </div>
+    <div id="timer-off-status-message" class="status-message"></div>
+  </div>
+</body>
+<script>
+  var serverStatusMessage = "Fill in all the information and make sure AutoFlow Servers & Scheduler are turned on";
+
+  // Header Tabs Toggle
+  function rudrSwitchTab(rudr_tab_id, rudr_tab_content) {
+    var x = document.getElementsByClassName("tabcontent");
+    var i;
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = 'none';
+    }
+    document.getElementById(rudr_tab_content).style.display = 'block';
+    var x = document.getElementsByClassName("tabmenu");
+    var i;
+    for (i = 0; i < x.length; i++) {
+      x[i].className = 'tabmenu';
+    }
+    document.getElementById(rudr_tab_id).className = 'tabmenu active';
+  }
+  function onPageLoad(){
+    // Show Link to Guide if no internet connection
+    if (navigator.onLine === false) {
+      document.getElementById("guideInstruction").style.display = "block";
+    } else {
+      document.getElementById("guideContent").style.display = "block";
+    }
+  }
+  function guideTabClick(){
+      window.location.reload();
+      // Show Link to Guide if no internet connection
+      if (navigator.onLine === false) {
+        document.getElementById("guideInstruction").style.display = "block";
+      } else {
+        document.getElementById("guideContent").style.display = "block";
+      }
+    }
+  function checkIfEmaiScheduled() {
+    xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var data = JSON.parse(this.responseText);
+        if (data.schedule == "null") {
+          document.getElementById("email-content-show").style.display = "none";
+          document.getElementById("email-content-form").style.display = "block";
+        } else {
+          document.getElementById("scheduled-message").innerHTML = data.postStatus;
+          document.getElementById("email-schedule-value").innerHTML = data.schedule;
+          document.getElementById("email-title-value").innerHTML = data.title;
+          document.getElementById("email-content-value").innerHTML = data.content;
+          document.getElementById("email-from-value").innerHTML = data.name;
+          document.getElementById("email-address-value").innerHTML = data.email;
+          document.getElementById("email-send-interval-value").innerHTML = data.interval;
+          document.getElementById("server-status-message").innerHTML = "";
+          document.getElementById("email-content-show").style.display = "block";
+          document.getElementById("email-content-form").style.display = "none";
+        }
+      } else {
+        document.getElementById("server-status-message").innerHTML = serverStatusMessage;
+      }
+    };
+    xhr.open("GET", "http://localhost:1112/email-content-read", true);
+    xhr.send();
+  }
+
+  function checkIfSmtpSettingExists() {
+    xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var data = JSON.parse(this.responseText);
+        if (data == "null") {
+          document.getElementById("smtp-content-details").style.display = "none";
+          document.getElementById("smtp-content-form").style.display = "block";
+        } else {
+          document.getElementById("smtp-server-url-value").innerHTML = data.smtpServerUrl;
+          document.getElementById("smtp-server-username-value").innerHTML = data.smtpServerUsername;
+          document.getElementById("smtp-server-password-value").innerHTML = data.smtpServerPassword;
+          document.getElementById("smtp-server-tls-value").innerHTML = data.smtpServerTLS;
+          document.getElementById("smtp-server-port-value").innerHTML = data.smtpServerPort;
+          document.getElementById("server-status-message").innerHTML = "";
+          document.getElementById("smtp-content-details").style.display = "block";
+          document.getElementById("smtp-content-form").style.display = "none";
+        }
+      } else {
+        document.getElementById("server-status-message").innerHTML = serverStatusMessage;
+      }
+    };
+    xhr.open("GET", "http://localhost:1113/smtp-server-get", true);
+    xhr.send();
+
+  }
+
+  // API Calls
+  const xhr = new XMLHttpRequest();
+
+  /* Load Email List Page */
+  function loadEmail() {
+    var fileInput = document.getElementById("file-input").value;
+    xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("email-load-status").innerHTML = this.responseText;
+        document.getElementById("server-status-message").innerHTML = "";
+      } else {
+        document.getElementById("server-status-message").innerHTML = serverStatusMessage;
+      }
+    };
+    xhr.open("POST", "http://localhost:1111/email-list-load", true);
+    xhr.send(fileInput);
+  }
+
+  function getEmailList() {
+    xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("email-list").innerHTML = this.responseText;
+        document.getElementById("server-status-message").innerHTML = "";
+      } else {
+        document.getElementById("server-status-message").innerHTML = serverStatusMessage;
+      }
+    };
+    xhr.open("GET", "http://localhost:1111/email-list-read", true);
+    xhr.send();
+  }
+
+  function deleteEmailList() {
+    xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("email-load-status").innerHTML = this.responseText;
+        document.getElementById("email-list").innerHTML = "";
+        document.getElementById("server-status-message").innerHTML = "";
+      } else {
+        document.getElementById("server-status-message").innerHTML = serverStatusMessage;
+      }
+    };
+    xhr.open("POST", "http://localhost:1111/email-list-delete", true);
+    xhr.send();
+  }
+
+  /* Compose Email Page */
+  function scheduleEmail() {
+    var emailTitle = document.getElementById("email-title").value;
+    var emailContent = document.getElementById("email-content").value;
+    var emailSchedule = document.getElementById("email-schedule").value;
+    var emailName = document.getElementById("email-from").value;
+    var emailAddress = document.getElementById("email-address").value;
+    var emailInterval = document.getElementById("email-send-interval").value;
+    var currentTime = new Date();
+    var currentTimeInUnix = currentTime / 1000; // Getting the current unix time to create if condition that checks how much later email is scheduled
+    var emailScheduleInUnix = (Date.parse(emailSchedule) / 1000); // Converting schedule time to unix format for easier calculation in the backend
+    var currentTimeZoneInMinutes = currentTime.getTimezoneOffset() * 60; // Applying local time in minutes
+    var currruntTimeUnixLocalTime = currentTimeInUnix - currentTimeZoneInMinutes // Calculate current local time for easier calculation in the backend
+    var emailScheduleUnixLocalTime = emailScheduleInUnix - currentTimeZoneInMinutes; // Calculate Schedule in local time
+    var currentTimePlusDay = currentTimeInUnix + 3600; // Add 1 hour to current time, for use in the if condition that checks how much later email is scheduled
+    var formdata = {
+      "title": emailTitle,
+      "content": emailContent,
+      "schedule": emailScheduleUnixLocalTime,
+      "name": emailName,
+      "email": emailAddress,
+      "interval": emailInterval,
+      "currentTime": currruntTimeUnixLocalTime,
+      "timeZone": currentTimeZoneInMinutes
+    }
+    var emailcontent = JSON.stringify(formdata);
+    // Check if scheduled time is less than 1 hour after
+    if (currentTimePlusDay < emailScheduleInUnix) {
+      xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          var data = JSON.parse(this.responseText);
+          document.getElementById("scheduled-message").innerHTML = data.postStatus;
+          document.getElementById("email-schedule-value").innerHTML = data.schedule;
+          document.getElementById("email-title-value").innerHTML = data.title;
+          document.getElementById("email-content-value").innerHTML = data.content;
+          document.getElementById("email-from-value").innerHTML = data.name;
+          document.getElementById("email-address-value").innerHTML = data.email;
+          document.getElementById("email-send-interval-value").innerHTML = data.interval;
+          document.getElementById("server-status-message").innerHTML = "";
+        } else {
+          document.getElementById("server-status-message").innerHTML = serverStatusMessage;
+        }
+      };
+      xhr.open("POST", "http://localhost:1112/schedule-email", true);
+      xhr.send(emailcontent);
+      document.getElementById("email-content-show").style.display = "block";
+      document.getElementById("email-content-form").style.display = "none";
+      document.getElementById("composeEmailCancelButton").style.display = "inline-block";
+    } else {
+      document.getElementById("compose-error-message").innerHTML =
+        "Schedule must be at least 1 hour later";
+    }
+  }
+
+  function emailContent() {
+    xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var data = JSON.parse(this.responseText);
+        document.getElementById("email-schedule").value = data.schedule;
+        document.getElementById("email-title").value = data.title;
+        document.getElementById("email-content").value = data.content;
+        document.getElementById("email-from").value = data.name;
+        document.getElementById("email-address").value = data.email;
+        document.getElementById("email-send-interval").value = data.interval;
+        document.getElementById("compose-error-message").value = "";
+        document.getElementById("server-status-message").innerHTML = "";
+      } else {
+        document.getElementById("server-status-message").innerHTML = serverStatusMessage;
+      }
+    };
+    xhr.open("GET", "http://localhost:1112/email-content-read", true);
+    xhr.send();
+    document.getElementById("email-content-show").style.display = "none";
+    document.getElementById("email-content-form").style.display = "block";
+  }
+
+  function unscheduleEmail() {
+    xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("email-schedule").value = "";
+        document.getElementById("email-title").value = "";
+        document.getElementById("email-content").value = "";
+        document.getElementById("email-from").value = "";
+        document.getElementById("email-address").value = "";
+        document.getElementById("email-send-interval").value = "1";
+        document.getElementById("compose-error-message").value = "";
+        document.getElementById("server-status-message").innerHTML = "";
+      } else {
+        document.getElementById("server-status-message").innerHTML = serverStatusMessage;
+      }
+    };
+    xhr.open("POST", "http://localhost:1112/schedule-delete", true);
+    xhr.send();
+    document.getElementById("email-content-show").style.display = "none";
+    document.getElementById("email-content-form").style.display = "inline-block";
+    document.getElementById("composeEmailCancelButton").style.display = "none";
+  }
+  $('.summernote').summernote({
+    hint: {
+      mentions: ['jayden', 'sam', 'alvin', 'david', 'peter'],
+      match: /\B@(\w*)$/,
+      search: function(keyword, callback) {
+        callback($.grep(this.mentions, function(item) {
+          return item.indexOf(keyword) == 0;
+        }));
+      },
+      content: function(item) {
+        return '@' + item;
+      }
+    },
+    toolbar: [
+      ['dynamicInsert', ['dynamicInsert']],
+      ['style', ['style']],
+      ['font', ['bold', 'underline', 'clear']],
+      ['fontname', ['fontname']],
+      ['color', ['color']],
+      ['para', ['ul', 'ol', 'paragraph']],
+      ['table', ['table']],
+      ['insert', ['link', 'picture', 'video']],
+      ['view', ['fullscreen', 'codeview', 'help']],
+    ]
+  });
+
+  /* SMTP Setting Page*/
+  function setSmtpServer() {
+    var smtpServerUrl = document.getElementById("smtp-server-url").value;
+    var smtpServerUsername = document.getElementById("smtp-server-username").value;
+    var smtpServerPassword = document.getElementById("smtp-server-password").value;
+    var smtpServerTLS = document.getElementById("smtp-server-tls").value;
+    var smtpServerPort = document.getElementById("smtp-server-port").value;
+    var formdata = {
+      "smtpServerUrl": smtpServerUrl,
+      "smtpServerUsername": smtpServerUsername,
+      "smtpServerPassword": smtpServerPassword,
+      "smtpServerTLS": smtpServerTLS,
+      "smtpServerPort": smtpServerPort
+    }
+    var smtpSettingContent = JSON.stringify(formdata);
+    xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var data = JSON.parse(this.responseText);
+        document.getElementById("smtp-server-url-value").innerHTML = data.smtpServerUrl;
+        document.getElementById("smtp-server-username-value").innerHTML = data.smtpServerUsername;
+        document.getElementById("smtp-server-password-value").innerHTML = data.smtpServerPassword;
+        document.getElementById("smtp-server-tls-value").innerHTML = data.smtpServerTLS;
+        document.getElementById("smtp-server-port-value").innerHTML = data.smtpServerPort;
+        document.getElementById("server-status-message").innerHTML = "";
+      } else {
+        document.getElementById("server-status-message").innerHTML = serverStatusMessage;
+      }
+    };
+    xhr.open("POST", "http://localhost:1113/smtp-server-set", true);
+    xhr.send(smtpSettingContent);
+    document.getElementById("smtp-content-details").style.display = "block";
+    document.getElementById("smtp-content-form").style.display = "none";
+    document.getElementById("smtpSettingsCancelButton").style.display = "inline-block";
+  }
+
+  function showPassword() {
+    var x = document.getElementById("smtp-server-password-value");
+    if (x.style.display === "inline-block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "inline-block";
+    }
+  }
+
+  function smtpEdit() {
+    xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var data = JSON.parse(this.responseText);
+        document.getElementById("smtp-server-url").value = data.smtpServerUrl;
+        document.getElementById("smtp-server-username").value = data.smtpServerUsername;
+        document.getElementById("smtp-server-password").value = data.smtpServerPassword;
+        document.getElementById("smtp-server-tls").value = data.smtpServerTLS;
+        document.getElementById("smtp-server-port").value = data.smtpServerPort;
+        document.getElementById("server-status-message").innerHTML = "";
+      } else {
+        document.getElementById("server-status-message").innerHTML = serverStatusMessage;
+      }
+    };
+    xhr.open("GET", "http://localhost:1113/smtp-server-get", true);
+    xhr.send();
+    document.getElementById("smtp-content-details").style.display = "none";
+    document.getElementById("smtp-content-form").style.display = "block";
+  }
+
+  function smtpClearSetting() {
+    xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("smtp-server-url").value = "";
+        document.getElementById("smtp-server-username").value = "";
+        document.getElementById("smtp-server-password").value = "";
+        document.getElementById("smtp-server-tls").value = "always";
+        document.getElementById("smtp-server-port").value = "587";
+        document.getElementById("server-status-message").innerHTML = "";
+      } else {
+        document.getElementById("server-status-message").innerHTML = serverStatusMessage;
+      }
+    };
+    xhr.open("POST", "http://localhost:1113/smtp-server-delete", true);
+    xhr.send();
+    document.getElementById("smtp-content-details").style.display = "none";
+    document.getElementById("smtp-content-form").style.display = "block";
+    document.getElementById("smtpSettingsCancelButton").style.display = "none";
+  }
+
+
+  /* Troubleshoot Page*/
+  function emailCounterReset() {
+    xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("email-counter-status-message").innerHTML = this.responseText;
+        document.getElementById("server-status-message").innerHTML = "";
+      } else {
+        document.getElementById("server-status-message").innerHTML = serverStatusMessage;
+      }
+    };
+    xhr.open("POST", "http://localhost:1114/count-reset", true);
+    xhr.send();
+  }
+
+  function emailCounterRead() {
+    xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("email-counter-status-message").innerHTML = this.responseText;
+        document.getElementById("server-status-message").innerHTML = "";
+      } else {
+        document.getElementById("server-status-message").innerHTML = serverStatusMessage;
+      }
+    };
+    xhr.open("GET", "http://localhost:1114/count-read", true);
+    xhr.send();
+  }
+
+  function delaySendTimerOff() {
+    xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("timer-off-status-message").innerHTML = this.responseText;
+        document.getElementById("server-status-message").innerHTML = "";
+      } else {
+        document.getElementById("server-status-message").innerHTML = serverStatusMessage;
+      }
+    };
+    xhr.open("POST", "http://localhost:1114/delay-send-off", true);
+    xhr.send();
+  }
+
+  function schedulerOff() {
+    xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("timer-off-status-message").innerHTML = this.responseText;
+        document.getElementById("server-status-message").innerHTML = "";
+      } else {
+        document.getElementById("server-status-message").innerHTML = serverStatusMessage;
+      }
+    };
+    xhr.open("POST", "http://localhost:1114/scheduler-off", true);
+    xhr.send();
+  }
+
+  function scheduleReset() {
+    xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("schedule-status-message").innerHTML = this.responseText;
+        document.getElementById("server-status-message").innerHTML = "";
+      } else {
+        document.getElementById("server-status-message").innerHTML = serverStatusMessage;
+      }
+    };
+    xhr.open("POST", "http://localhost:1114/scheduler-reset", true);
+    xhr.send();
+  }
+</script>
+
+</html>
