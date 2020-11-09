@@ -46,9 +46,9 @@
       <b class="email-title">Developer Video: </b>Coming soon</p>
       <h4 style="text-decoration:underline;">How to use the Scheduler</h4>
       <p><b>User Guide Below: </b><a href="https://interactor.com/autoflow/use-cases/scheduled-email-sender/" target="_blank">https://interactor.com/autoflow/use-cases/scheduled-email-sender/</a><br />
-      <b class="email-title">Tutorial Video: </b>Coming Soon/p>
+        <b class="email-title">Tutorial Video: </b>Coming Soon/p>
     </div>
-    <embed id="guideContent" style="width:100%; height:100vh;" src="https://interactor.com/autoflow/use-cases/scheduled-email-sender/"/>
+    <embed id="guideContent" style="width:100%; height:100vh;" src="https://interactor.com/autoflow/use-cases/scheduled-email-sender/" />
   </div>
 
   <!---           Load Email List Page             -->
@@ -167,10 +167,55 @@
     </div>
     <div id="scheduled-message" class="status-message"></div>
     <div id="view-email-content" class="page-content"></div>
-    <div class="">Running on localhost using GMAIL SMTP? <a
-        href="https://help.groovehq.com/help/why-wont-my-gmail-smtp-settings-work#:~:text=In%20Google%20Mail%2C%20you%20must,this%20setting%20must%20be%20enabled%3A&text=Please%20note%20that%20these%20options,enabled%20for%20your%20Google%20account"
-        target="_blank">Follow instruction to allow "less secure" apps access</a>
-    </div>
+    <h3>SMTP Settings</h3>
+    <div>
+      Note: if running from localhost, you will need to allow "less secure" app by following the link provided below.
+    </div> <br />
+    <table class="smtp-setting-instruction">
+      <tr>
+        <th>Email Provider</th>
+        <th>SMTP Settings</th>
+        <th>Allow "less secure" app</th>
+      </tr>
+      <tr>
+        <td>Gmail<br />GSuite</td>
+        <td>Server: smtp.gmail.com<br />
+          Port: 465<br />
+          Encryption: SSL/TLS</td>
+        <td><a
+            href="https://help.groovehq.com/help/why-wont-my-gmail-smtp-settings-work#:~:text=In%20Google%20Mail%2C%20you%20must,this%20setting%20must%20be%20enabled%3A&text=Please%20note%20that%20these%20options,enabled%20for%20your%20Google%20account"
+            target="_blank">GMail</a><br />
+          <a href="https://support.google.com/a/answer/6260879" target="_blank">GSuite</a></td>
+      </tr>
+      <tr>
+        <td>MSN<br />Outlook.com<br />Hotmail.com<br />Live.com<br />Microsoft 365</td>
+        <td>Server: smtp.office365.com<br />
+          Port: 587<br />
+          Encryption: STARTTLS</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Yahoo!</td>
+        <td>Server: smtp.mail.yahoo.com <br />
+          Port: 587 or 465<br />
+          Encryption: TLS/STARTTLS or SSL</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>iCloud</td>
+        <td>Server: smtp.mail.me.com<br />
+          Port: 587<br />
+          Encryption: STARTTLS</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>AOL (including Verizon.net)</td>
+        <td>Server: smtp.aol.com<br />
+          Port: 465<br />
+          Encryption: SSL/TLS</td>
+        <td></td>
+      </tr>
+    </table>
   </div>
 
   <!---           Troubleshoot Page             -->
@@ -222,7 +267,8 @@
     }
     document.getElementById(rudr_tab_id).className = 'tabmenu active';
   }
-  function onPageLoad(){
+
+  function onPageLoad() {
     // Show Link to Guide if no internet connection
     if (navigator.onLine === false) {
       document.getElementById("guideInstruction").style.display = "block";
@@ -230,15 +276,17 @@
       document.getElementById("guideContent").style.display = "block";
     }
   }
-  function guideTabClick(){
-      window.location.reload();
-      // Show Link to Guide if no internet connection
-      if (navigator.onLine === false) {
-        document.getElementById("guideInstruction").style.display = "block";
-      } else {
-        document.getElementById("guideContent").style.display = "block";
-      }
+
+  function guideTabClick() {
+    window.location.reload();
+    // Show Link to Guide if no internet connection
+    if (navigator.onLine === false) {
+      document.getElementById("guideInstruction").style.display = "block";
+    } else {
+      document.getElementById("guideContent").style.display = "block";
     }
+  }
+
   function checkIfEmaiScheduled() {
     xhr.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
