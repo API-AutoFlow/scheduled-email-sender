@@ -10,7 +10,7 @@
 
   <!-- Richtext Editor related imports -->
   <!-- jQuery is required -->
-  <script src="wysiwyg-editor-summernote/dist/jquery.min.js"></script>
+  <script src="wysiwyg-editor-summernote/jquery.min.js"></script>
   <!-- For <a href="https://www.jqueryscript.net/tags.php?/bootstrap 4/">Bootstrap 4</a> -->
   <link rel="stylesheet" href="wysiwyg-editor-summernote/dist/summernote-bs4.css" />
   <script src="wysiwyg-editor-summernote/dist/summernote-bs4.js"></script>
@@ -28,7 +28,7 @@
 
 <body onload="onPageLoad()">
   <!---           Navigation             -->
-  <span class="title-h1">Scheduled Email Sender </span><span style="float:right">Powered by <b>API AutoFlow</b></span>
+  <span class="title-h1">Scheduled Email Sender </span><span>v0.1.0</span><span style="float:right">Powered by <b>API AutoFlow</b></span>
   <span id="server-status-message"></span>
   <ul class="no-bullets">
     <li><a href="javascript:rudrSwitchTab('tb_0', 'content_0');" id="tb_0" class="tabmenu active" onclick="guideTabClick()">Guide</a></li>
@@ -424,6 +424,8 @@
           document.getElementById("email-address-value").innerHTML = data.email;
           document.getElementById("email-send-interval-value").innerHTML = data.interval;
           document.getElementById("server-status-message").innerHTML = "";
+          console.log("data.content" + data.content);
+          console.log(data);
         } else {
           document.getElementById("server-status-message").innerHTML = serverStatusMessage;
         }
@@ -451,6 +453,8 @@
         document.getElementById("email-send-interval").value = data.interval;
         document.getElementById("compose-error-message").value = "";
         document.getElementById("server-status-message").innerHTML = "";
+        console.log("data.content" + data.content);
+        console.log(data);
       } else {
         document.getElementById("server-status-message").innerHTML = serverStatusMessage;
       }
