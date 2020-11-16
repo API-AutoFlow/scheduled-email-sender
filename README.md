@@ -11,6 +11,9 @@ Visit https://interactor.com/autoflow/download/ to get a free version of API Aut
 # User Manual
 Click link to open the user manual <a href="https://interactor.com/autoflow/use-cases/scheduled-email-sender/" target="_blank">https://interactor.com/autoflow/use-cases/scheduled-email-sender/</a>
 
+# Solution demo for developers
+[![Developer Demo Video](https://img.youtube.com/vi/uIkiKWeU6kM/0.jpg)](https://www.youtube.com/watch?v=uIkiKWeU6kM)
+
 # Flow overview
 
 ## [Server] Load Email List
