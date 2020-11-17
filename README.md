@@ -5,14 +5,14 @@
 Configuration config.json was created using AutoFlow version __1.0.13__
 Upload the configuration to API AutoFlow.
 
+# Video Demo for developers
+<img src="https://img.youtube.com/vi/uIkiKWeU6kM/0.jpg" target="_blank"><a href="https://youtu.be/uIkiKWeU6kM"/></img>
+
 # API AutoFlow Download
 Visit https://interactor.com/autoflow/download/ to get a free version of API AutoFlow
 
 # User Manual
 Click link to open the user manual <a href="https://interactor.com/autoflow/use-cases/scheduled-email-sender/" target="_blank">https://interactor.com/autoflow/use-cases/scheduled-email-sender/</a>
-
-# Solution demo for developers
-[![Developer Demo Video](https://img.youtube.com/vi/uIkiKWeU6kM/0.jpg)](https://www.youtube.com/watch?v=uIkiKWeU6kM)
 
 # Flow overview
 
