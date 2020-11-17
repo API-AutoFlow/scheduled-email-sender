@@ -1,11 +1,11 @@
 {
   "$product": {
     "name": "API AutoFlow",
-    "version": "1.0.12"
+    "version": "1.0.13"
   },
   "Data": [
     {
-      "id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+      "id": "<1605595210491878000.0.1768571349.193462277.162341>",
       "meta": {},
       "value": {
         "name": "content"
@@ -14,7 +14,7 @@
   ],
   "Inbound": [
     {
-      "id": "<1604640892653130000.0.4079928963.3902013447.97902>",
+      "id": "<1605595210491895000.0.1768571349.193462277.162345>",
       "meta": {},
       "value": {
         "access-control-allow-origin": "null",
@@ -24,7 +24,17 @@
       }
     },
     {
-      "id": "<1604640892653128000.0.4079928963.3902013447.97901>",
+      "id": "<1605595210491902000.0.1768571349.193462277.162348>",
+      "meta": {},
+      "value": {
+        "access-control-allow-origin": "null",
+        "name": "Troubleshoot",
+        "port": 1114,
+        "type": "http server"
+      }
+    },
+    {
+      "id": "<1605595210491897000.0.1768571349.193462277.162346>",
       "meta": {},
       "value": {
         "access-control-allow-origin": "null",
@@ -34,7 +44,7 @@
       }
     },
     {
-      "id": "<1604640892653122000.0.4079928963.3902013447.97899>",
+      "id": "<1605595210491900000.0.1768571349.193462277.162347>",
       "meta": {},
       "value": {
         "access-control-allow-origin": "null",
@@ -42,207 +52,19 @@
         "port": 1113,
         "type": "http server"
       }
-    },
-    {
-      "id": "<1604640892653125000.0.4079928963.3902013447.97900>",
-      "meta": {},
-      "value": {
-        "access-control-allow-origin": "null",
-        "name": "Troubleshoot",
-        "port": 1114,
-        "type": "http server"
-      }
     }
   ],
   "InboundEndpoint": [
     {
-      "id": "<1604640892653138000.0.4079928963.3902013447.97905>",
+      "id": "<1605595210491925000.0.1768571349.193462277.162359>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653122000.0.4079928963.3902013447.97899>"
+          "<1605595210491897000.0.1768571349.193462277.162346>"
         ]
       },
       "value": {
-        "default-test": "<1604640892653274000.0.4079928963.3902013447.97952>",
-        "methods": [
-          "GET"
-        ],
-        "name": "Get SMTP Server Setting",
-        "path": "/smtp-server-get",
-        "type": "endpoint"
-      }
-    },
-    {
-      "id": "<1604640892653147000.0.4079928963.3902013447.97909>",
-      "meta": {
-        "index": [
-          "inbound",
-          "<1604640892653125000.0.4079928963.3902013447.97900>"
-        ]
-      },
-      "value": {
-        "default-test": "<1604640892653257000.0.4079928963.3902013447.97944>",
-        "methods": [
-          "ANY"
-        ],
-        "name": "Count Read",
-        "path": "/count-read",
-        "type": "endpoint"
-      }
-    },
-    {
-      "id": "<1604640892653158000.0.4079928963.3902013447.97914>",
-      "meta": {
-        "index": [
-          "inbound",
-          "<1604640892653122000.0.4079928963.3902013447.97899>"
-        ]
-      },
-      "value": {
-        "default-test": "<1604640892653272000.0.4079928963.3902013447.97951>",
-        "methods": [
-          "POST"
-        ],
-        "name": "Set SMTP Server",
-        "path": "/smtp-server-set",
-        "type": "endpoint"
-      }
-    },
-    {
-      "id": "<1604640892653200000.0.4079928963.3902013447.97918>",
-      "meta": {
-        "index": [
-          "inbound",
-          "<1604640892653125000.0.4079928963.3902013447.97900>"
-        ]
-      },
-      "value": {
-        "default-test": "<1604640892653302000.0.4079928963.3902013447.97955>",
-        "methods": [
-          "POST"
-        ],
-        "name": "Delay Send Off",
-        "path": "/delay-send-off",
-        "type": "endpoint"
-      }
-    },
-    {
-      "id": "<1604640892653136000.0.4079928963.3902013447.97904>",
-      "meta": {
-        "index": [
-          "inbound",
-          "<1604640892653125000.0.4079928963.3902013447.97900>"
-        ]
-      },
-      "value": {
-        "default-test": "<1604640892653263000.0.4079928963.3902013447.97947>",
-        "methods": [
-          "POST"
-        ],
-        "name": "Schedule Reset",
-        "path": "/schedule-reset",
-        "type": "endpoint"
-      }
-    },
-    {
-      "id": "<1604640892653204000.0.4079928963.3902013447.97920>",
-      "meta": {
-        "index": [
-          "inbound",
-          "<1604640892653125000.0.4079928963.3902013447.97900>"
-        ]
-      },
-      "value": {
-        "default-test": "<1604640892653253000.0.4079928963.3902013447.97942>",
-        "methods": [
-          "GET"
-        ],
-        "name": "Last Run Get",
-        "path": "/last-run",
-        "type": "endpoint"
-      }
-    },
-    {
-      "id": "<1604640892653156000.0.4079928963.3902013447.97913>",
-      "meta": {
-        "index": [
-          "inbound",
-          "<1604640892653130000.0.4079928963.3902013447.97902>"
-        ]
-      },
-      "value": {
-        "default-test": "<1604640892653249000.0.4079928963.3902013447.97940>",
-        "methods": [
-          "POST"
-        ],
-        "name": "Unschedule Email",
-        "path": "/schedule-delete",
-        "type": "endpoint"
-      }
-    },
-    {
-      "id": "<1604640892653143000.0.4079928963.3902013447.97907>",
-      "meta": {
-        "index": [
-          "inbound",
-          "<1604640892653130000.0.4079928963.3902013447.97902>"
-        ]
-      },
-      "value": {
-        "default-test": "<1604640892653305000.0.4079928963.3902013447.97956>",
-        "method": "ANY",
-        "name": "Schedule Now",
-        "path": "/schedule-now",
-        "type": "endpoint"
-      }
-    },
-    {
-      "id": "<1604640892653134000.0.4079928963.3902013447.97903>",
-      "meta": {
-        "index": [
-          "inbound",
-          "<1604640892653125000.0.4079928963.3902013447.97900>"
-        ]
-      },
-      "value": {
-        "default-test": "<1604640892653266000.0.4079928963.3902013447.97948>",
-        "methods": [
-          "POST"
-        ],
-        "name": "Last Run Set",
-        "path": "/last-run-set",
-        "type": "endpoint"
-      }
-    },
-    {
-      "id": "<1604640892653140000.0.4079928963.3902013447.97906>",
-      "meta": {
-        "index": [
-          "inbound",
-          "<1604640892653125000.0.4079928963.3902013447.97900>"
-        ]
-      },
-      "value": {
-        "default-test": "<1604640892653255000.0.4079928963.3902013447.97943>",
-        "methods": [
-          "ANY"
-        ],
-        "name": "Delay Send Set",
-        "path": "/delay-send-set",
-        "type": "endpoint"
-      }
-    },
-    {
-      "id": "<1604640892653154000.0.4079928963.3902013447.97912>",
-      "meta": {
-        "index": [
-          "inbound",
-          "<1604640892653128000.0.4079928963.3902013447.97901>"
-        ]
-      },
-      "value": {
-        "default-test": "<1604640892653251000.0.4079928963.3902013447.97941>",
+        "default-test": "<1605595210492007000.0.1768571349.193462277.162390>",
         "methods": [
           "GET"
         ],
@@ -252,15 +74,15 @@
       }
     },
     {
-      "id": "<1604640892653151000.0.4079928963.3902013447.97911>",
+      "id": "<1605595210491927000.0.1768571349.193462277.162360>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653128000.0.4079928963.3902013447.97901>"
+          "<1605595210491897000.0.1768571349.193462277.162346>"
         ]
       },
       "value": {
-        "default-test": "<1604640892653276000.0.4079928963.3902013447.97953>",
+        "default-test": "<1605595210492026000.0.1768571349.193462277.162399>",
         "methods": [
           "POST"
         ],
@@ -270,87 +92,87 @@
       }
     },
     {
-      "id": "<1604640892653202000.0.4079928963.3902013447.97919>",
+      "id": "<1605595210491913000.0.1768571349.193462277.162353>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653125000.0.4079928963.3902013447.97900>"
+          "<1605595210491902000.0.1768571349.193462277.162348>"
         ]
       },
       "value": {
-        "default-test": "<1604640892653259000.0.4079928963.3902013447.97945>",
+        "default-test": "<1605595210492003000.0.1768571349.193462277.162388>",
         "methods": [
           "POST"
         ],
-        "name": "Scheduler Off",
-        "path": "/scheduler-off",
+        "name": "Schedule Reset",
+        "path": "/schedule-reset",
         "type": "endpoint"
       }
     },
     {
-      "id": "<1604640892653145000.0.4079928963.3902013447.97908>",
+      "id": "<1605595210491905000.0.1768571349.193462277.162349>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653130000.0.4079928963.3902013447.97902>"
+          "<1605595210491900000.0.1768571349.193462277.162347>"
         ]
       },
       "value": {
-        "default-test": "<1604640892653268000.0.4079928963.3902013447.97949>",
+        "default-test": "<1605595210492030000.0.1768571349.193462277.162401>",
         "methods": [
-          "POST"
+          "GET"
         ],
-        "name": "Schedule Email",
-        "path": "/schedule-email",
+        "name": "Get SMTP Server Setting",
+        "path": "/smtp-server-get",
         "type": "endpoint"
       }
     },
     {
-      "id": "<1604640892653195000.0.4079928963.3902013447.97916>",
+      "id": "<1605595210491915000.0.1768571349.193462277.162354>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653125000.0.4079928963.3902013447.97900>"
+          "<1605595210491902000.0.1768571349.193462277.162348>"
         ]
       },
       "value": {
-        "default-test": "<1604640892653270000.0.4079928963.3902013447.97950>",
+        "default-test": "<1605595210492028000.0.1768571349.193462277.162400>",
         "methods": [
-          "POST"
+          "GET"
         ],
-        "name": "Count Reset",
-        "path": "/count-reset",
+        "name": "Last Run Get",
+        "path": "/last-run",
         "type": "endpoint"
       }
     },
     {
-      "id": "<1604640892653198000.0.4079928963.3902013447.97917>",
+      "id": "<1605595210491921000.0.1768571349.193462277.162357>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653122000.0.4079928963.3902013447.97899>"
+          "<1605595210491902000.0.1768571349.193462277.162348>"
         ]
       },
       "value": {
-        "default-test": "<1604640892653299000.0.4079928963.3902013447.97954>",
+        "default-test": "<1605595210492001000.0.1768571349.193462277.162387>",
         "methods": [
           "POST"
         ],
-        "name": "Delete SMTP Server Setting",
-        "path": "/smtp-server-delete",
+        "name": "Last Run Set",
+        "path": "/last-run-set",
         "type": "endpoint"
       }
     },
     {
-      "id": "<1604640892653149000.0.4079928963.3902013447.97910>",
+      "id": "<1605595210491938000.0.1768571349.193462277.162365>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653128000.0.4079928963.3902013447.97901>"
+          "<1605595210491897000.0.1768571349.193462277.162346>"
         ]
       },
       "value": {
-        "default-test": "<1604640892653247000.0.4079928963.3902013447.97939>",
+        "default-test": "<1605595210492009000.0.1768571349.193462277.162391>",
         "methods": [
           "POST"
         ],
@@ -360,15 +182,193 @@
       }
     },
     {
-      "id": "<1604640892653192000.0.4079928963.3902013447.97915>",
+      "id": "<1605595210491934000.0.1768571349.193462277.162363>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653130000.0.4079928963.3902013447.97902>"
+          "<1605595210491902000.0.1768571349.193462277.162348>"
         ]
       },
       "value": {
-        "default-test": "<1604640892653261000.0.4079928963.3902013447.97946>",
+        "default-test": "<1605595210492019000.0.1768571349.193462277.162396>",
+        "methods": [
+          "POST"
+        ],
+        "name": "Count Reset",
+        "path": "/count-reset",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1605595210491929000.0.1768571349.193462277.162361>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1605595210491902000.0.1768571349.193462277.162348>"
+        ]
+      },
+      "value": {
+        "default-test": "<1605595210491997000.0.1768571349.193462277.162385>",
+        "methods": [
+          "POST"
+        ],
+        "name": "Scheduler Off",
+        "path": "/scheduler-off",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1605595210491932000.0.1768571349.193462277.162362>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1605595210491895000.0.1768571349.193462277.162345>"
+        ]
+      },
+      "value": {
+        "default-test": "<1605595210492023000.0.1768571349.193462277.162398>",
+        "methods": [
+          "POST"
+        ],
+        "name": "Schedule Email",
+        "path": "/schedule-email",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1605595210491923000.0.1768571349.193462277.162358>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1605595210491902000.0.1768571349.193462277.162348>"
+        ]
+      },
+      "value": {
+        "default-test": "<1605595210491999000.0.1768571349.193462277.162386>",
+        "methods": [
+          "ANY"
+        ],
+        "name": "Delay Send Set",
+        "path": "/delay-send-set",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1605595210491919000.0.1768571349.193462277.162356>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1605595210491895000.0.1768571349.193462277.162345>"
+        ]
+      },
+      "value": {
+        "default-test": "<1605595210492005000.0.1768571349.193462277.162389>",
+        "method": "ANY",
+        "name": "Schedule Now",
+        "path": "/schedule-now",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1605595210491917000.0.1768571349.193462277.162355>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1605595210491895000.0.1768571349.193462277.162345>"
+        ]
+      },
+      "value": {
+        "default-test": "<1605595210492017000.0.1768571349.193462277.162395>",
+        "methods": [
+          "POST"
+        ],
+        "name": "Unschedule Email",
+        "path": "/schedule-delete",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1605595210491936000.0.1768571349.193462277.162364>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1605595210491900000.0.1768571349.193462277.162347>"
+        ]
+      },
+      "value": {
+        "default-test": "<1605595210492013000.0.1768571349.193462277.162393>",
+        "methods": [
+          "POST"
+        ],
+        "name": "Delete SMTP Server Setting",
+        "path": "/smtp-server-delete",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1605595210491911000.0.1768571349.193462277.162352>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1605595210491902000.0.1768571349.193462277.162348>"
+        ]
+      },
+      "value": {
+        "default-test": "<1605595210492021000.0.1768571349.193462277.162397>",
+        "methods": [
+          "POST"
+        ],
+        "name": "Delay Send Off",
+        "path": "/delay-send-off",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1605595210491909000.0.1768571349.193462277.162351>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1605595210491900000.0.1768571349.193462277.162347>"
+        ]
+      },
+      "value": {
+        "default-test": "<1605595210492015000.0.1768571349.193462277.162394>",
+        "methods": [
+          "POST"
+        ],
+        "name": "Set SMTP Server",
+        "path": "/smtp-server-set",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1605595210491907000.0.1768571349.193462277.162350>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1605595210491902000.0.1768571349.193462277.162348>"
+        ]
+      },
+      "value": {
+        "default-test": "<1605595210492032000.0.1768571349.193462277.162402>",
+        "methods": [
+          "ANY"
+        ],
+        "name": "Count Read",
+        "path": "/count-read",
+        "type": "endpoint"
+      }
+    },
+    {
+      "id": "<1605595210491940000.0.1768571349.193462277.162366>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1605595210491895000.0.1768571349.193462277.162345>"
+        ]
+      },
+      "value": {
+        "default-test": "<1605595210492011000.0.1768571349.193462277.162392>",
         "methods": [
           "GET"
         ],
@@ -380,18 +380,18 @@
   ],
   "InboundEndpointFlow": [
     {
-      "id": "<1604640892653138000.0.4079928963.3902013447.97905>",
+      "id": "<1605595210491925000.0.1768571349.193462277.162359>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653122000.0.4079928963.3902013447.97899>"
+          "<1605595210491897000.0.1768571349.193462277.162346>"
         ]
       },
       "value": [
         {
           "$action": "table/get-data",
           "default": "",
-          "key": "smtp",
+          "key": "email-list",
           "mock-result": "",
           "output-location": {
             "__LDATA__": [
@@ -401,133 +401,42 @@
           },
           "path": [],
           "refresh-lifespan": false,
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
           "use-mock-result": false
         }
       ]
     },
     {
-      "id": "<1604640892653147000.0.4079928963.3902013447.97909>",
+      "id": "<1605595210491927000.0.1768571349.193462277.162360>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653125000.0.4079928963.3902013447.97900>"
+          "<1605595210491897000.0.1768571349.193462277.162346>"
         ]
       },
       "value": [
         {
-          "$action": "table/get-data",
-          "default": "",
-          "key": "email-count",
-          "mock-result": "",
-          "name": "table/get-data",
-          "output-location": {
-            "__LDATA__": [
-              "response",
-              "body"
-            ]
-          },
-          "path": [],
-          "refresh-lifespan": false,
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
-          "use-mock-result": false
-        }
-      ]
-    },
-    {
-      "id": "<1604640892653158000.0.4079928963.3902013447.97914>",
-      "meta": {
-        "index": [
-          "inbound",
-          "<1604640892653122000.0.4079928963.3902013447.97899>"
-        ]
-      },
-      "value": [
-        {
-          "$action": "json/decode",
-          "json": {
-            "__LDATA__": [
-              "request",
-              "body"
-            ]
-          },
-          "output-location": {
-            "__LDATA__": [
-              "result"
-            ]
-          }
-        },
-        {
-          "$action": "table/set-data",
-          "cache": 0,
-          "iterate": false,
-          "key": "smtp",
-          "lifespan": null,
+          "$action": "table/delete-data",
+          "key": "email-list",
           "mock-result": "ok",
           "output-location": {
             "__LDATA__": [
-              "status"
-            ]
-          },
-          "path": [],
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
-          "use-mock-result": false,
-          "value": {
-            "__LDATA__": [
-              "result"
-            ]
-          }
-        },
-        {
-          "$action": "table/get-data",
-          "default": "",
-          "key": "smtp",
-          "mock-result": "",
-          "output-location": {
-            "__LDATA__": [
               "response",
               "body"
             ]
           },
           "path": [],
-          "refresh-lifespan": false,
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
           "use-mock-result": false
         }
       ]
     },
     {
-      "id": "<1604640892653200000.0.4079928963.3902013447.97918>",
+      "id": "<1605595210491913000.0.1768571349.193462277.162353>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653125000.0.4079928963.3902013447.97900>"
-        ]
-      },
-      "value": [
-        {
-          "$action": "config/stop-timer",
-          "timer-id": "<1604640892653311000.0.4079928963.3902013447.97958>",
-          "use-mock-result": false
-        },
-        {
-          "$action": "data/set",
-          "at-location": {
-            "__LDATA__": [
-              "response",
-              "body"
-            ]
-          },
-          "value": "Ok"
-        }
-      ]
-    },
-    {
-      "id": "<1604640892653136000.0.4079928963.3902013447.97904>",
-      "meta": {
-        "index": [
-          "inbound",
-          "<1604640892653125000.0.4079928963.3902013447.97900>"
+          "<1605595210491902000.0.1768571349.193462277.162348>"
         ]
       },
       "value": [
@@ -547,18 +456,45 @@
           "path": [
             "schedule"
           ],
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
           "use-mock-result": false,
           "value": 0
         }
       ]
     },
     {
-      "id": "<1604640892653204000.0.4079928963.3902013447.97920>",
+      "id": "<1605595210491905000.0.1768571349.193462277.162349>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653125000.0.4079928963.3902013447.97900>"
+          "<1605595210491900000.0.1768571349.193462277.162347>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "table/get-data",
+          "default": "",
+          "key": "smtp",
+          "mock-result": "",
+          "output-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "path": [],
+          "refresh-lifespan": false,
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
+          "use-mock-result": false
+        }
+      ]
+    },
+    {
+      "id": "<1605595210491915000.0.1768571349.193462277.162354>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1605595210491902000.0.1768571349.193462277.162348>"
         ]
       },
       "value": [
@@ -575,159 +511,17 @@
           },
           "path": [],
           "refresh-lifespan": false,
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
           "use-mock-result": false
         }
       ]
     },
     {
-      "id": "<1604640892653156000.0.4079928963.3902013447.97913>",
+      "id": "<1605595210491921000.0.1768571349.193462277.162357>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653130000.0.4079928963.3902013447.97902>"
-        ]
-      },
-      "value": [
-        {
-          "$action": "table/set-data",
-          "cache": 0,
-          "iterate": false,
-          "key": "email-content",
-          "lifespan": null,
-          "mock-result": "ok",
-          "output-location": {
-            "__LDATA__": [
-              "response",
-              "body"
-            ]
-          },
-          "path": [],
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
-          "use-mock-result": false,
-          "value": {
-            "content": "",
-            "schedule": "",
-            "title": ""
-          }
-        }
-      ]
-    },
-    {
-      "id": "<1604640892653143000.0.4079928963.3902013447.97907>",
-      "meta": {
-        "index": [
-          "inbound",
-          "<1604640892653130000.0.4079928963.3902013447.97902>"
-        ]
-      },
-      "value": [
-        {
-          "$action": "table/get-data",
-          "default": "",
-          "key": "email-content",
-          "mock-result": "",
-          "output-location": {
-            "__LDATA__": [
-              "result"
-            ]
-          },
-          "path": [
-            "currentTime"
-          ],
-          "refresh-lifespan": false,
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
-          "use-mock-result": false
-        },
-        {
-          "$action": "data/expression",
-          "expression": "var1 + 70",
-          "name": "Add 1min 10 secs",
-          "output-location": {
-            "__LDATA__": [
-              "result"
-            ]
-          },
-          "variables": [
-            {
-              "name": "var1",
-              "target": {
-                "__LDATA__": [
-                  "result"
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "$action": "table/set-data",
-          "cache": 0,
-          "iterate": false,
-          "key": "email-content",
-          "lifespan": null,
-          "mock-result": "ok",
-          "name": "Set schedule in table",
-          "output-location": {
-            "__LDATA__": [
-              "result-status"
-            ]
-          },
-          "path": [
-            "schedule"
-          ],
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
-          "use-mock-result": false,
-          "value": {
-            "__LDATA__": [
-              "result"
-            ]
-          }
-        },
-        {
-          "$action": "table/set-data",
-          "cache": 0,
-          "iterate": false,
-          "key": "email-count",
-          "lifespan": null,
-          "mock-result": "ok",
-          "name": "Reset email counter",
-          "output-location": {
-            "__LDATA__": []
-          },
-          "path": [],
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
-          "use-mock-result": false,
-          "value": 0
-        },
-        {
-          "$action": "data/set",
-          "at-location": {
-            "__LDATA__": [
-              "response",
-              "body"
-            ]
-          },
-          "value": {
-            "scheduled": {
-              "__LDATA__": [
-                "result"
-              ]
-            },
-            "status": {
-              "__LDATA__": [
-                "result-status"
-              ]
-            }
-          }
-        }
-      ]
-    },
-    {
-      "id": "<1604640892653134000.0.4079928963.3902013447.97903>",
-      "meta": {
-        "index": [
-          "inbound",
-          "<1604640892653125000.0.4079928963.3902013447.97900>"
+          "<1605595210491902000.0.1768571349.193462277.162348>"
         ]
       },
       "value": [
@@ -767,7 +561,7 @@
           "path": [
             "finish"
           ],
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
           "use-mock-result": false,
           "value": {
             "__LDATA__": [
@@ -787,7 +581,7 @@
             "__LDATA__": []
           },
           "path": [],
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
           "use-mock-result": false,
           "value": 0
         },
@@ -805,438 +599,18 @@
           "path": [
             "schedule"
           ],
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
           "use-mock-result": true,
           "value": 0
         }
       ]
     },
     {
-      "id": "<1604640892653140000.0.4079928963.3902013447.97906>",
+      "id": "<1605595210491938000.0.1768571349.193462277.162365>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653125000.0.4079928963.3902013447.97900>"
-        ]
-      },
-      "value": [
-        {
-          "$action": "config/update-timer",
-          "interval": 5000,
-          "output-location": {
-            "__$afref__": "data",
-            "path": []
-          },
-          "timer-id": "<1604640892653311000.0.4079928963.3902013447.97958>",
-          "timer-name": "",
-          "use-mock-result": false
-        },
-        {
-          "$action": "communication/smtp-send",
-          "body": "",
-          "from": {
-            "email": "name@company.com",
-            "name": "John Doe"
-          },
-          "mock-result": "success",
-          "output-location": {
-            "__LDATA__": [
-              "result"
-            ]
-          },
-          "password": "",
-          "port": 587,
-          "smtp-server": "smtp.company.com",
-          "subject": "",
-          "tls": "always",
-          "to": [
-            {
-              "email": "name@company.com",
-              "name": "John Doe"
-            }
-          ],
-          "use-mock-result": true,
-          "username": "name@company.com"
-        }
-      ]
-    },
-    {
-      "id": "<1604640892653154000.0.4079928963.3902013447.97912>",
-      "meta": {
-        "index": [
-          "inbound",
-          "<1604640892653128000.0.4079928963.3902013447.97901>"
-        ]
-      },
-      "value": [
-        {
-          "$action": "table/get-data",
-          "default": "",
-          "key": "email-list",
-          "mock-result": "",
-          "output-location": {
-            "__LDATA__": [
-              "response",
-              "body"
-            ]
-          },
-          "path": [],
-          "refresh-lifespan": false,
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
-          "use-mock-result": false
-        }
-      ]
-    },
-    {
-      "id": "<1604640892653151000.0.4079928963.3902013447.97911>",
-      "meta": {
-        "index": [
-          "inbound",
-          "<1604640892653128000.0.4079928963.3902013447.97901>"
-        ]
-      },
-      "value": [
-        {
-          "$action": "table/delete-data",
-          "key": "email-list",
-          "mock-result": "ok",
-          "output-location": {
-            "__LDATA__": [
-              "response",
-              "body"
-            ]
-          },
-          "path": [],
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
-          "use-mock-result": false
-        }
-      ]
-    },
-    {
-      "id": "<1604640892653202000.0.4079928963.3902013447.97919>",
-      "meta": {
-        "index": [
-          "inbound",
-          "<1604640892653125000.0.4079928963.3902013447.97900>"
-        ]
-      },
-      "value": [
-        {
-          "$action": "config/stop-timer",
-          "timer-id": "<1604640892653308000.0.4079928963.3902013447.97957>",
-          "use-mock-result": false
-        },
-        {
-          "$action": "data/set",
-          "at-location": {
-            "__LDATA__": [
-              "response",
-              "body"
-            ]
-          },
-          "value": "Ok"
-        }
-      ]
-    },
-    {
-      "id": "<1604640892653145000.0.4079928963.3902013447.97908>",
-      "meta": {
-        "index": [
-          "inbound",
-          "<1604640892653130000.0.4079928963.3902013447.97902>"
-        ]
-      },
-      "value": [
-        {
-          "$action": "json/decode",
-          "json": {
-            "__LDATA__": [
-              "request",
-              "body"
-            ]
-          },
-          "name": "Decode incoming JSON",
-          "output-location": {
-            "__LDATA__": [
-              "result"
-            ]
-          }
-        },
-        {
-          "$action": "table/set-data",
-          "cache": 0,
-          "iterate": false,
-          "key": "email-content",
-          "lifespan": null,
-          "mock-result": "ok",
-          "name": "Insert to Table",
-          "output-location": {
-            "__LDATA__": [
-              "content-status"
-            ]
-          },
-          "path": [],
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
-          "use-mock-result": false,
-          "value": {
-            "__LDATA__": [
-              "result"
-            ]
-          }
-        },
-        {
-          "$action": "organization/group",
-          "do": [
-            {
-              "$action": "string/to-integer",
-              "name": "Get interval for timer set",
-              "output-location": {
-                "__LDATA__": [
-                  "interval"
-                ]
-              },
-              "string": {
-                "__LDATA__": [
-                  "result",
-                  "interval"
-                ]
-              }
-            },
-            {
-              "$action": "data/expression",
-              "expression": "var1 * 60000",
-              "name": "Covert interval to millisecond",
-              "output-location": {
-                "__LDATA__": [
-                  "interval"
-                ]
-              },
-              "variables": [
-                {
-                  "name": "var1",
-                  "target": {
-                    "__LDATA__": [
-                      "interval"
-                    ]
-                  }
-                }
-              ]
-            },
-            {
-              "$action": "table/set-data",
-              "cache": 0,
-              "iterate": false,
-              "key": "email-interval",
-              "lifespan": null,
-              "mock-result": "ok",
-              "output-location": {
-                "__LDATA__": []
-              },
-              "path": [],
-              "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
-              "use-mock-result": false,
-              "value": {
-                "__LDATA__": [
-                  "interval"
-                ]
-              }
-            }
-          ],
-          "name": "Delay Send Timer Setting"
-        },
-        {
-          "$action": "organization/group",
-          "do": [
-            {
-              "$action": "datetime/from-unix-time",
-              "name": "Convert Unix time",
-              "output-location": {
-                "__LDATA__": [
-                  "scheduled-time"
-                ]
-              },
-              "time-unit": "second",
-              "unix-time": {
-                "__LDATA__": [
-                  "result",
-                  "schedule"
-                ]
-              }
-            },
-            {
-              "$action": "string/slice",
-              "length": 16,
-              "output-location": {
-                "__LDATA__": [
-                  "scheduled-time"
-                ]
-              },
-              "start": 0,
-              "string": {
-                "__LDATA__": [
-                  "scheduled-time"
-                ]
-              }
-            }
-          ],
-          "name": "Pre time to return"
-        },
-        {
-          "$action": "table/get-data",
-          "default": "",
-          "key": "email-content",
-          "mock-result": "",
-          "name": "Get the new setting to return",
-          "output-location": {
-            "__LDATA__": [
-              "table-read"
-            ]
-          },
-          "path": [],
-          "refresh-lifespan": false,
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
-          "use-mock-result": false
-        },
-        {
-          "$action": "data/set",
-          "at-location": {
-            "__LDATA__": [
-              "response",
-              "body"
-            ]
-          },
-          "name": "Return new data",
-          "value": {
-            "content": {
-              "__LDATA__": [
-                "table-read",
-                "content"
-              ]
-            },
-            "email": {
-              "__$afref__": "data",
-              "path": [
-                "result",
-                "email"
-              ]
-            },
-            "interval": {
-              "__LDATA__": [
-                "result",
-                "interval"
-              ]
-            },
-            "name": {
-              "__LDATA__": [
-                "table-read",
-                "name"
-              ]
-            },
-            "postStatus": {
-              "__LDATA__": [
-                "content-status"
-              ]
-            },
-            "schedule": {
-              "__LDATA__": [
-                "scheduled-time"
-              ]
-            },
-            "title": {
-              "__LDATA__": [
-                "table-read",
-                "title"
-              ]
-            }
-          }
-        },
-        {
-          "$action": "table/set-data",
-          "cache": 0,
-          "iterate": false,
-          "key": "email-count",
-          "lifespan": null,
-          "mock-result": "ok",
-          "name": "Reset email counter",
-          "output-location": {
-            "__LDATA__": []
-          },
-          "path": [],
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
-          "use-mock-result": false,
-          "value": 0
-        }
-      ]
-    },
-    {
-      "id": "<1604640892653195000.0.4079928963.3902013447.97916>",
-      "meta": {
-        "index": [
-          "inbound",
-          "<1604640892653125000.0.4079928963.3902013447.97900>"
-        ]
-      },
-      "value": [
-        {
-          "$action": "table/set-data",
-          "cache": 0,
-          "iterate": false,
-          "key": "email-count",
-          "lifespan": null,
-          "mock-result": "ok",
-          "name": "Reset Email Counter",
-          "output-location": {
-            "__LDATA__": [
-              "response",
-              "body"
-            ]
-          },
-          "path": [],
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
-          "use-mock-result": false,
-          "value": 0
-        }
-      ]
-    },
-    {
-      "id": "<1604640892653198000.0.4079928963.3902013447.97917>",
-      "meta": {
-        "index": [
-          "inbound",
-          "<1604640892653122000.0.4079928963.3902013447.97899>"
-        ]
-      },
-      "value": [
-        {
-          "$action": "table/set-data",
-          "cache": 0,
-          "iterate": false,
-          "key": "smtp",
-          "lifespan": null,
-          "mock-result": "ok",
-          "output-location": {
-            "__LDATA__": [
-              "response",
-              "body"
-            ]
-          },
-          "path": [],
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
-          "use-mock-result": false,
-          "value": {
-            "__LDATA__": [
-              "result"
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "id": "<1604640892653149000.0.4079928963.3902013447.97910>",
-      "meta": {
-        "index": [
-          "inbound",
-          "<1604640892653128000.0.4079928963.3902013447.97901>"
+          "<1605595210491897000.0.1768571349.193462277.162346>"
         ]
       },
       "value": [
@@ -1320,7 +694,7 @@
             ]
           },
           "path": [],
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
           "use-mock-result": false,
           "value": {
             "__LDATA__": [
@@ -1410,7 +784,7 @@
             ]
           },
           "path": [],
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
           "use-mock-result": false,
           "value": {
             "__LDATA__": [
@@ -1443,11 +817,637 @@
       ]
     },
     {
-      "id": "<1604640892653192000.0.4079928963.3902013447.97915>",
+      "id": "<1605595210491934000.0.1768571349.193462277.162363>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653130000.0.4079928963.3902013447.97902>"
+          "<1605595210491902000.0.1768571349.193462277.162348>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "table/set-data",
+          "cache": 0,
+          "iterate": false,
+          "key": "email-count",
+          "lifespan": null,
+          "mock-result": "ok",
+          "name": "Reset Email Counter",
+          "output-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "path": [],
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
+          "use-mock-result": false,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "<1605595210491929000.0.1768571349.193462277.162361>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1605595210491902000.0.1768571349.193462277.162348>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "config/stop-timer",
+          "timer-id": "<1605595210492037000.0.1768571349.193462277.162404>",
+          "use-mock-result": false
+        },
+        {
+          "$action": "data/set",
+          "at-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "value": "Ok"
+        }
+      ]
+    },
+    {
+      "id": "<1605595210491932000.0.1768571349.193462277.162362>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1605595210491895000.0.1768571349.193462277.162345>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "json/decode",
+          "json": {
+            "__LDATA__": [
+              "request",
+              "body"
+            ]
+          },
+          "name": "Decode incoming JSON",
+          "output-location": {
+            "__LDATA__": [
+              "result"
+            ]
+          }
+        },
+        {
+          "$action": "table/set-data",
+          "cache": 0,
+          "iterate": false,
+          "key": "email-content",
+          "lifespan": null,
+          "mock-result": "ok",
+          "name": "Insert to Table",
+          "output-location": {
+            "__LDATA__": [
+              "content-status"
+            ]
+          },
+          "path": [],
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
+          "use-mock-result": false,
+          "value": {
+            "__LDATA__": [
+              "result"
+            ]
+          }
+        },
+        {
+          "$action": "organization/group",
+          "do": [
+            {
+              "$action": "string/to-integer",
+              "name": "Get interval for timer set",
+              "output-location": {
+                "__LDATA__": [
+                  "interval"
+                ]
+              },
+              "string": {
+                "__LDATA__": [
+                  "result",
+                  "interval"
+                ]
+              }
+            },
+            {
+              "$action": "data/expression",
+              "expression": "var1 * 60000",
+              "name": "Covert interval to millisecond",
+              "output-location": {
+                "__LDATA__": [
+                  "interval"
+                ]
+              },
+              "variables": [
+                {
+                  "name": "var1",
+                  "target": {
+                    "__LDATA__": [
+                      "interval"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "$action": "table/set-data",
+              "cache": 0,
+              "iterate": false,
+              "key": "email-interval",
+              "lifespan": null,
+              "mock-result": "ok",
+              "output-location": {
+                "__LDATA__": []
+              },
+              "path": [],
+              "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
+              "use-mock-result": false,
+              "value": {
+                "__LDATA__": [
+                  "interval"
+                ]
+              }
+            }
+          ],
+          "name": "Delay Send Timer Setting"
+        },
+        {
+          "$action": "organization/group",
+          "do": [
+            {
+              "$action": "datetime/from-unix-time",
+              "name": "Convert Unix time",
+              "output-location": {
+                "__LDATA__": [
+                  "scheduled-time"
+                ]
+              },
+              "time-unit": "second",
+              "unix-time": {
+                "__LDATA__": [
+                  "result",
+                  "schedule"
+                ]
+              }
+            },
+            {
+              "$action": "string/slice",
+              "length": 16,
+              "output-location": {
+                "__LDATA__": [
+                  "scheduled-time"
+                ]
+              },
+              "start": 0,
+              "string": {
+                "__LDATA__": [
+                  "scheduled-time"
+                ]
+              }
+            }
+          ],
+          "name": "Pre time to return"
+        },
+        {
+          "$action": "table/get-data",
+          "default": "",
+          "key": "email-content",
+          "mock-result": "",
+          "name": "Get the new setting to return",
+          "output-location": {
+            "__LDATA__": [
+              "table-read"
+            ]
+          },
+          "path": [],
+          "refresh-lifespan": false,
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
+          "use-mock-result": false
+        },
+        {
+          "$action": "data/set",
+          "at-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "name": "Return new data",
+          "value": {
+            "content": {
+              "__LDATA__": [
+                "table-read",
+                "content"
+              ]
+            },
+            "email": {
+              "__$afref__": "data",
+              "path": [
+                "result",
+                "email"
+              ]
+            },
+            "interval": {
+              "__LDATA__": [
+                "result",
+                "interval"
+              ]
+            },
+            "name": {
+              "__LDATA__": [
+                "table-read",
+                "name"
+              ]
+            },
+            "postStatus": {
+              "__LDATA__": [
+                "content-status"
+              ]
+            },
+            "schedule": {
+              "__LDATA__": [
+                "scheduled-time"
+              ]
+            },
+            "title": {
+              "__LDATA__": [
+                "table-read",
+                "title"
+              ]
+            }
+          }
+        },
+        {
+          "$action": "table/set-data",
+          "cache": 0,
+          "iterate": false,
+          "key": "email-count",
+          "lifespan": null,
+          "mock-result": "ok",
+          "name": "Reset email counter",
+          "output-location": {
+            "__LDATA__": []
+          },
+          "path": [],
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
+          "use-mock-result": false,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "<1605595210491923000.0.1768571349.193462277.162358>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1605595210491902000.0.1768571349.193462277.162348>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "config/update-timer",
+          "interval": 5000,
+          "output-location": {
+            "__$afref__": "data",
+            "path": []
+          },
+          "timer-id": "<1605595210492035000.0.1768571349.193462277.162403>",
+          "timer-name": "",
+          "use-mock-result": false
+        },
+        {
+          "$action": "communication/smtp-send",
+          "body": "",
+          "from": {
+            "email": "name@company.com",
+            "name": "John Doe"
+          },
+          "mock-result": "success",
+          "output-location": {
+            "__LDATA__": [
+              "result"
+            ]
+          },
+          "password": "",
+          "port": 587,
+          "smtp-server": "smtp.company.com",
+          "subject": "",
+          "tls": "always",
+          "to": [
+            {
+              "email": "name@company.com",
+              "name": "John Doe"
+            }
+          ],
+          "use-mock-result": true,
+          "username": "name@company.com"
+        }
+      ]
+    },
+    {
+      "id": "<1605595210491919000.0.1768571349.193462277.162356>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1605595210491895000.0.1768571349.193462277.162345>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "table/get-data",
+          "default": "",
+          "key": "email-content",
+          "mock-result": "",
+          "output-location": {
+            "__LDATA__": [
+              "result"
+            ]
+          },
+          "path": [
+            "currentTime"
+          ],
+          "refresh-lifespan": false,
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
+          "use-mock-result": false
+        },
+        {
+          "$action": "data/expression",
+          "expression": "var1 + 70",
+          "name": "Add 1min 10 secs",
+          "output-location": {
+            "__LDATA__": [
+              "result"
+            ]
+          },
+          "variables": [
+            {
+              "name": "var1",
+              "target": {
+                "__LDATA__": [
+                  "result"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "$action": "table/set-data",
+          "cache": 0,
+          "iterate": false,
+          "key": "email-content",
+          "lifespan": null,
+          "mock-result": "ok",
+          "name": "Set schedule in table",
+          "output-location": {
+            "__LDATA__": [
+              "result-status"
+            ]
+          },
+          "path": [
+            "schedule"
+          ],
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
+          "use-mock-result": false,
+          "value": {
+            "__LDATA__": [
+              "result"
+            ]
+          }
+        },
+        {
+          "$action": "table/set-data",
+          "cache": 0,
+          "iterate": false,
+          "key": "email-count",
+          "lifespan": null,
+          "mock-result": "ok",
+          "name": "Reset email counter",
+          "output-location": {
+            "__LDATA__": []
+          },
+          "path": [],
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
+          "use-mock-result": false,
+          "value": 0
+        },
+        {
+          "$action": "data/set",
+          "at-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "value": {
+            "scheduled": {
+              "__LDATA__": [
+                "result"
+              ]
+            },
+            "status": {
+              "__LDATA__": [
+                "result-status"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "<1605595210491917000.0.1768571349.193462277.162355>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1605595210491895000.0.1768571349.193462277.162345>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "table/set-data",
+          "cache": 0,
+          "iterate": false,
+          "key": "email-content",
+          "lifespan": null,
+          "mock-result": "ok",
+          "output-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "path": [],
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
+          "use-mock-result": false,
+          "value": {
+            "content": "",
+            "schedule": "",
+            "title": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "<1605595210491936000.0.1768571349.193462277.162364>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1605595210491900000.0.1768571349.193462277.162347>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "table/set-data",
+          "cache": 0,
+          "iterate": false,
+          "key": "smtp",
+          "lifespan": null,
+          "mock-result": "ok",
+          "output-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "path": [],
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
+          "use-mock-result": false,
+          "value": {
+            "__LDATA__": [
+              "result"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "<1605595210491911000.0.1768571349.193462277.162352>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1605595210491902000.0.1768571349.193462277.162348>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "config/stop-timer",
+          "timer-id": "<1605595210492035000.0.1768571349.193462277.162403>",
+          "use-mock-result": false
+        },
+        {
+          "$action": "data/set",
+          "at-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "value": "Ok"
+        }
+      ]
+    },
+    {
+      "id": "<1605595210491909000.0.1768571349.193462277.162351>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1605595210491900000.0.1768571349.193462277.162347>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "json/decode",
+          "json": {
+            "__LDATA__": [
+              "request",
+              "body"
+            ]
+          },
+          "output-location": {
+            "__LDATA__": [
+              "result"
+            ]
+          }
+        },
+        {
+          "$action": "table/set-data",
+          "cache": 0,
+          "iterate": false,
+          "key": "smtp",
+          "lifespan": null,
+          "mock-result": "ok",
+          "output-location": {
+            "__LDATA__": [
+              "status"
+            ]
+          },
+          "path": [],
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
+          "use-mock-result": false,
+          "value": {
+            "__LDATA__": [
+              "result"
+            ]
+          }
+        },
+        {
+          "$action": "table/get-data",
+          "default": "",
+          "key": "smtp",
+          "mock-result": "",
+          "output-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "path": [],
+          "refresh-lifespan": false,
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
+          "use-mock-result": false
+        }
+      ]
+    },
+    {
+      "id": "<1605595210491907000.0.1768571349.193462277.162350>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1605595210491902000.0.1768571349.193462277.162348>"
+        ]
+      },
+      "value": [
+        {
+          "$action": "table/get-data",
+          "default": "",
+          "key": "email-count",
+          "mock-result": "",
+          "name": "table/get-data",
+          "output-location": {
+            "__LDATA__": [
+              "response",
+              "body"
+            ]
+          },
+          "path": [],
+          "refresh-lifespan": false,
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
+          "use-mock-result": false
+        }
+      ]
+    },
+    {
+      "id": "<1605595210491940000.0.1768571349.193462277.162366>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1605595210491895000.0.1768571349.193462277.162345>"
         ]
       },
       "value": [
@@ -1464,7 +1464,7 @@
           },
           "path": [],
           "refresh-lifespan": false,
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
           "use-mock-result": false
         },
         {
@@ -1611,13 +1611,13 @@
   ],
   "InboundEndpointTest": [
     {
-      "id": "<1604640892653259000.0.4079928963.3902013447.97945>",
+      "id": "<1605595210492026000.0.1768571349.193462277.162399>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653125000.0.4079928963.3902013447.97900>",
+          "<1605595210491897000.0.1768571349.193462277.162346>",
           "endpoint",
-          "<1604640892653202000.0.4079928963.3902013447.97919>"
+          "<1605595210491927000.0.1768571349.193462277.162360>"
         ]
       },
       "value": {
@@ -1631,13 +1631,13 @@
       }
     },
     {
-      "id": "<1604640892653255000.0.4079928963.3902013447.97943>",
+      "id": "<1605595210492015000.0.1768571349.193462277.162394>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653125000.0.4079928963.3902013447.97900>",
+          "<1605595210491900000.0.1768571349.193462277.162347>",
           "endpoint",
-          "<1604640892653140000.0.4079928963.3902013447.97906>"
+          "<1605595210491909000.0.1768571349.193462277.162351>"
         ]
       },
       "value": {
@@ -1651,13 +1651,13 @@
       }
     },
     {
-      "id": "<1604640892653266000.0.4079928963.3902013447.97948>",
+      "id": "<1605595210491999000.0.1768571349.193462277.162386>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653125000.0.4079928963.3902013447.97900>",
+          "<1605595210491902000.0.1768571349.193462277.162348>",
           "endpoint",
-          "<1604640892653134000.0.4079928963.3902013447.97903>"
+          "<1605595210491923000.0.1768571349.193462277.162358>"
         ]
       },
       "value": {
@@ -1671,13 +1671,13 @@
       }
     },
     {
-      "id": "<1604640892653263000.0.4079928963.3902013447.97947>",
+      "id": "<1605595210492013000.0.1768571349.193462277.162393>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653125000.0.4079928963.3902013447.97900>",
+          "<1605595210491900000.0.1768571349.193462277.162347>",
           "endpoint",
-          "<1604640892653136000.0.4079928963.3902013447.97904>"
+          "<1605595210491936000.0.1768571349.193462277.162364>"
         ]
       },
       "value": {
@@ -1691,13 +1691,13 @@
       }
     },
     {
-      "id": "<1604640892653305000.0.4079928963.3902013447.97956>",
+      "id": "<1605595210492011000.0.1768571349.193462277.162392>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653130000.0.4079928963.3902013447.97902>",
+          "<1605595210491895000.0.1768571349.193462277.162345>",
           "endpoint",
-          "<1604640892653143000.0.4079928963.3902013447.97907>"
+          "<1605595210491940000.0.1768571349.193462277.162366>"
         ]
       },
       "value": {
@@ -1711,13 +1711,13 @@
       }
     },
     {
-      "id": "<1604640892653251000.0.4079928963.3902013447.97941>",
+      "id": "<1605595210492005000.0.1768571349.193462277.162389>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653128000.0.4079928963.3902013447.97901>",
+          "<1605595210491895000.0.1768571349.193462277.162345>",
           "endpoint",
-          "<1604640892653154000.0.4079928963.3902013447.97912>"
+          "<1605595210491919000.0.1768571349.193462277.162356>"
         ]
       },
       "value": {
@@ -1731,33 +1731,13 @@
       }
     },
     {
-      "id": "<1604640892653247000.0.4079928963.3902013447.97939>",
+      "id": "<1605595210492017000.0.1768571349.193462277.162395>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653128000.0.4079928963.3902013447.97901>",
+          "<1605595210491895000.0.1768571349.193462277.162345>",
           "endpoint",
-          "<1604640892653149000.0.4079928963.3902013447.97910>"
-        ]
-      },
-      "value": {
-        "name": "default-test-input",
-        "request": {
-          "body": "/Users/peterjung/Desktop/email_list.csv",
-          "header": {},
-          "path": {},
-          "query": {}
-        }
-      }
-    },
-    {
-      "id": "<1604640892653261000.0.4079928963.3902013447.97946>",
-      "meta": {
-        "index": [
-          "inbound",
-          "<1604640892653130000.0.4079928963.3902013447.97902>",
-          "endpoint",
-          "<1604640892653192000.0.4079928963.3902013447.97915>"
+          "<1605595210491917000.0.1768571349.193462277.162355>"
         ]
       },
       "value": {
@@ -1771,13 +1751,13 @@
       }
     },
     {
-      "id": "<1604640892653299000.0.4079928963.3902013447.97954>",
+      "id": "<1605595210492028000.0.1768571349.193462277.162400>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653122000.0.4079928963.3902013447.97899>",
+          "<1605595210491902000.0.1768571349.193462277.162348>",
           "endpoint",
-          "<1604640892653198000.0.4079928963.3902013447.97917>"
+          "<1605595210491915000.0.1768571349.193462277.162354>"
         ]
       },
       "value": {
@@ -1791,13 +1771,13 @@
       }
     },
     {
-      "id": "<1604640892653272000.0.4079928963.3902013447.97951>",
+      "id": "<1605595210492001000.0.1768571349.193462277.162387>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653122000.0.4079928963.3902013447.97899>",
+          "<1605595210491902000.0.1768571349.193462277.162348>",
           "endpoint",
-          "<1604640892653158000.0.4079928963.3902013447.97914>"
+          "<1605595210491921000.0.1768571349.193462277.162357>"
         ]
       },
       "value": {
@@ -1811,13 +1791,13 @@
       }
     },
     {
-      "id": "<1604640892653249000.0.4079928963.3902013447.97940>",
+      "id": "<1605595210492030000.0.1768571349.193462277.162401>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653130000.0.4079928963.3902013447.97902>",
+          "<1605595210491900000.0.1768571349.193462277.162347>",
           "endpoint",
-          "<1604640892653156000.0.4079928963.3902013447.97913>"
+          "<1605595210491905000.0.1768571349.193462277.162349>"
         ]
       },
       "value": {
@@ -1831,53 +1811,13 @@
       }
     },
     {
-      "id": "<1604640892653270000.0.4079928963.3902013447.97950>",
+      "id": "<1605595210492023000.0.1768571349.193462277.162398>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653125000.0.4079928963.3902013447.97900>",
+          "<1605595210491895000.0.1768571349.193462277.162345>",
           "endpoint",
-          "<1604640892653195000.0.4079928963.3902013447.97916>"
-        ]
-      },
-      "value": {
-        "name": "default-test-input",
-        "request": {
-          "body": "",
-          "header": {},
-          "path": {},
-          "query": {}
-        }
-      }
-    },
-    {
-      "id": "<1604640892653302000.0.4079928963.3902013447.97955>",
-      "meta": {
-        "index": [
-          "inbound",
-          "<1604640892653125000.0.4079928963.3902013447.97900>",
-          "endpoint",
-          "<1604640892653200000.0.4079928963.3902013447.97918>"
-        ]
-      },
-      "value": {
-        "name": "default-test-input",
-        "request": {
-          "body": "",
-          "header": {},
-          "path": {},
-          "query": {}
-        }
-      }
-    },
-    {
-      "id": "<1604640892653268000.0.4079928963.3902013447.97949>",
-      "meta": {
-        "index": [
-          "inbound",
-          "<1604640892653130000.0.4079928963.3902013447.97902>",
-          "endpoint",
-          "<1604640892653145000.0.4079928963.3902013447.97908>"
+          "<1605595210491932000.0.1768571349.193462277.162362>"
         ]
       },
       "value": {
@@ -1891,13 +1831,13 @@
       }
     },
     {
-      "id": "<1604640892653276000.0.4079928963.3902013447.97953>",
+      "id": "<1605595210492003000.0.1768571349.193462277.162388>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653128000.0.4079928963.3902013447.97901>",
+          "<1605595210491902000.0.1768571349.193462277.162348>",
           "endpoint",
-          "<1604640892653151000.0.4079928963.3902013447.97911>"
+          "<1605595210491913000.0.1768571349.193462277.162353>"
         ]
       },
       "value": {
@@ -1911,13 +1851,13 @@
       }
     },
     {
-      "id": "<1604640892653253000.0.4079928963.3902013447.97942>",
+      "id": "<1605595210492019000.0.1768571349.193462277.162396>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653125000.0.4079928963.3902013447.97900>",
+          "<1605595210491902000.0.1768571349.193462277.162348>",
           "endpoint",
-          "<1604640892653204000.0.4079928963.3902013447.97920>"
+          "<1605595210491934000.0.1768571349.193462277.162363>"
         ]
       },
       "value": {
@@ -1931,13 +1871,13 @@
       }
     },
     {
-      "id": "<1604640892653274000.0.4079928963.3902013447.97952>",
+      "id": "<1605595210492021000.0.1768571349.193462277.162397>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653122000.0.4079928963.3902013447.97899>",
+          "<1605595210491902000.0.1768571349.193462277.162348>",
           "endpoint",
-          "<1604640892653138000.0.4079928963.3902013447.97905>"
+          "<1605595210491911000.0.1768571349.193462277.162352>"
         ]
       },
       "value": {
@@ -1951,13 +1891,73 @@
       }
     },
     {
-      "id": "<1604640892653257000.0.4079928963.3902013447.97944>",
+      "id": "<1605595210492032000.0.1768571349.193462277.162402>",
       "meta": {
         "index": [
           "inbound",
-          "<1604640892653125000.0.4079928963.3902013447.97900>",
+          "<1605595210491902000.0.1768571349.193462277.162348>",
           "endpoint",
-          "<1604640892653147000.0.4079928963.3902013447.97909>"
+          "<1605595210491907000.0.1768571349.193462277.162350>"
+        ]
+      },
+      "value": {
+        "name": "default-test-input",
+        "request": {
+          "body": "",
+          "header": {},
+          "path": {},
+          "query": {}
+        }
+      }
+    },
+    {
+      "id": "<1605595210491997000.0.1768571349.193462277.162385>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1605595210491902000.0.1768571349.193462277.162348>",
+          "endpoint",
+          "<1605595210491929000.0.1768571349.193462277.162361>"
+        ]
+      },
+      "value": {
+        "name": "default-test-input",
+        "request": {
+          "body": "",
+          "header": {},
+          "path": {},
+          "query": {}
+        }
+      }
+    },
+    {
+      "id": "<1605595210492009000.0.1768571349.193462277.162391>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1605595210491897000.0.1768571349.193462277.162346>",
+          "endpoint",
+          "<1605595210491938000.0.1768571349.193462277.162365>"
+        ]
+      },
+      "value": {
+        "name": "default-test-input",
+        "request": {
+          "body": "/Users/peterjung/Desktop/email_list.csv",
+          "header": {},
+          "path": {},
+          "query": {}
+        }
+      }
+    },
+    {
+      "id": "<1605595210492007000.0.1768571349.193462277.162390>",
+      "meta": {
+        "index": [
+          "inbound",
+          "<1605595210491897000.0.1768571349.193462277.162346>",
+          "endpoint",
+          "<1605595210491925000.0.1768571349.193462277.162359>"
         ]
       },
       "value": {
@@ -1973,20 +1973,20 @@
   ],
   "Timer": [
     {
-      "id": "<1604640892653311000.0.4079928963.3902013447.97958>",
+      "id": "<1605595210492035000.0.1768571349.193462277.162403>",
       "meta": {},
       "value": {
         "interval": {
           "__$afref__": "table",
           "key": "email-interval",
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>"
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>"
         },
         "name": "Delay Send",
         "start-on-bootup": false
       }
     },
     {
-      "id": "<1604640892653308000.0.4079928963.3902013447.97957>",
+      "id": "<1605595210492037000.0.1768571349.193462277.162404>",
       "meta": {},
       "value": {
         "interval": 60000,
@@ -1997,7 +1997,7 @@
   ],
   "TimerFlow": [
     {
-      "id": "<1604640892653311000.0.4079928963.3902013447.97958>",
+      "id": "<1605595210492035000.0.1768571349.193462277.162403>",
       "meta": {},
       "value": [
         {
@@ -2013,7 +2013,7 @@
           },
           "path": [],
           "refresh-lifespan": false,
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
           "use-mock-result": false
         },
         {
@@ -2029,7 +2029,7 @@
           },
           "path": [],
           "refresh-lifespan": false,
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
           "use-mock-result": false
         },
         {
@@ -2045,7 +2045,7 @@
           },
           "path": [],
           "refresh-lifespan": false,
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
           "use-mock-result": false
         },
         {
@@ -2061,7 +2061,7 @@
           },
           "path": [],
           "refresh-lifespan": false,
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
           "use-mock-result": false
         },
         {
@@ -2168,7 +2168,7 @@
             },
             {
               "$action": "config/start-timer",
-              "timer-id": "<1604640892653308000.0.4079928963.3902013447.97957>",
+              "timer-id": "<1605595210492037000.0.1768571349.193462277.162404>",
               "use-mock-result": true
             }
           ],
@@ -2370,7 +2370,7 @@
                     ]
                   },
                   "path": [],
-                  "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+                  "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
                   "use-mock-result": false
                 }
               ],
@@ -2389,7 +2389,7 @@
                 },
                 {
                   "$action": "config/stop-timer",
-                  "timer-id": "<1604640892653308000.0.4079928963.3902013447.97957>",
+                  "timer-id": "<1605595210492037000.0.1768571349.193462277.162404>",
                   "use-mock-result": false
                 },
                 {
@@ -2415,7 +2415,7 @@
                   "path": [
                     "start"
                   ],
-                  "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+                  "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
                   "use-mock-result": false,
                   "value": {
                     "__$afref__": "data",
@@ -2615,7 +2615,7 @@
                     ]
                   },
                   "path": [],
-                  "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+                  "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
                   "use-mock-result": false
                 }
               ],
@@ -2653,13 +2653,13 @@
       ]
     },
     {
-      "id": "<1604640892653308000.0.4079928963.3902013447.97957>",
+      "id": "<1605595210492037000.0.1768571349.193462277.162404>",
       "meta": {},
       "value": [
         {
           "$action": "config/stop-timer",
           "name": "Stop Delay Send Timer",
-          "timer-id": "<1604640892653311000.0.4079928963.3902013447.97958>",
+          "timer-id": "<1605595210492035000.0.1768571349.193462277.162403>",
           "use-mock-result": true
         },
         {
@@ -2687,29 +2687,47 @@
             "timeZone"
           ],
           "refresh-lifespan": false,
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
           "use-mock-result": false
         },
         {
-          "$action": "data/expression",
-          "expression": "var1 - var2",
-          "name": "Current Local Time",
-          "output-location": {
-            "__LDATA__": [
-              "current-time-unix"
-            ]
-          },
-          "variables": [
+          "$action": "conditional/if",
+          "else": [
             {
-              "name": "var1",
-              "target": {
+              "$action": "data/expression",
+              "expression": "var1 - var2",
+              "name": "Current Local Time",
+              "output-location": {
                 "__LDATA__": [
                   "current-time-unix"
                 ]
-              }
-            },
+              },
+              "variables": [
+                {
+                  "name": "var1",
+                  "target": {
+                    "__LDATA__": [
+                      "current-time-unix"
+                    ]
+                  }
+                },
+                {
+                  "name": "var2",
+                  "target": {
+                    "__LDATA__": [
+                      "time-zone"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "expression": "",
+          "then": [],
+          "variables": [
             {
-              "name": "var2",
+              "$condition": "type/is-null",
+              "name": "condition1",
               "target": {
                 "__LDATA__": [
                   "time-zone"
@@ -2753,7 +2771,7 @@
             "schedule"
           ],
           "refresh-lifespan": false,
-          "table-id": "<1604640892653102000.0.4079928963.3902013447.97895>",
+          "table-id": "<1605595210491878000.0.1768571349.193462277.162341>",
           "use-mock-result": false
         },
         {
@@ -2782,7 +2800,7 @@
             },
             {
               "$action": "config/start-timer",
-              "timer-id": "<1604640892653311000.0.4079928963.3902013447.97958>",
+              "timer-id": "<1605595210492035000.0.1768571349.193462277.162403>",
               "use-mock-result": true
             }
           ],
