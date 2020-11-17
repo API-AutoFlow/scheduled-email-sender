@@ -6,7 +6,7 @@ Configuration config.json was created using AutoFlow version __1.0.13__
 Upload the configuration to API AutoFlow.
 
 # Video Demo for developers
-<a href="https://youtu.be/uIkiKWeU6kM"/><img src="https://img.youtube.com/vi/uIkiKWeU6kM/0.jpg" target="_blank"/></a>
+<a href="https://youtu.be/uIkiKWeU6kM" target="_blank"/><img src="https://img.youtube.com/vi/uIkiKWeU6kM/0.jpg"/></a>
 
 # API AutoFlow Download
 Visit https://interactor.com/autoflow/download/ to get a free version of API AutoFlow
