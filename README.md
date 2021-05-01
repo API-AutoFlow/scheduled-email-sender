@@ -16,7 +16,7 @@ Open in new tab by using CTRL+click (on Windows and Linux) or CMD+click (on MacO
 Visit https://interactor.com/autoflow/download/ to get a free version of API AutoFlow
 
 # User Manual
-Click link to open the user manual <a href="https://interactor.com/autoflow/use-cases/scheduled-email-sender/" target="_blank">https://interactor.com/autoflow/use-cases/scheduled-email-sender/</a>
+Click link to open the user manual <a href="https://www.interactor.com/autoflow/use-cases/scheduled-email-sender/" target="_blank">https://www.interactor.com/autoflow/use-cases/scheduled-email-sender/</a>
 
 # Flow overview
 
