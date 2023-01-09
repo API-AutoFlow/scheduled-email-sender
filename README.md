@@ -69,5 +69,9 @@ Name: Scheduler Off
 ## [Timer] Delay Send
 
 # Need help?
+
+<!--
 Leave your comment on <a href="https://interactor.com/autoflow/use-cases/scheduled-email-sender/" target="_blank">https://interactor.com/autoflow/use-cases/scheduled-email-sender/</a>
-Is you have questions about this solution, feel free to post your question on the community "<a href="https://interactor.com/autoflow/questions" target="_blank">Ask Questions</a>" website.
+-->
+
+Is you have questions about this solution, feel free to post your question on the community "<a href="[https://interactor.com/autoflow/questions](https://www.interactor.com/support/forum)" target="_blank">Ask Questions</a>" website.
